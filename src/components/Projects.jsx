@@ -8,7 +8,7 @@ const Projects = () => {
       description: "Architected a dual-domain RAG pipeline over RBI/SEBI regulatory PDFs and HDFC annual reports. Engineered vector search using Sentence Transformers and ChromaDB, achieving 90% top-5 retrieval hit rate.",
       tags: ["RAG", "FastAPI", "ChromaDB", "Docker"],
       image: "/projects/financial-copilot.png",
-      github: null,
+      github: "https://github.com/Jegadeesh17/FinancialIntelligenceCopilot",
       live: "https://financialintelligencecopilot.streamlit.app/",
       status: "Live on Streamlit"
     },

@@ -9,8 +9,8 @@ const Projects = () => {
       tags: ["RAG", "FastAPI", "ChromaDB", "Docker"],
       image: "/projects/financial-copilot.png",
       github: null,
-      live: null,
-      status: "Research Project"
+      live: "https://financialintelligencecopilot.streamlit.app/",
+      status: "Live on Streamlit"
     },
     {
       title: "Rice Leaf Disease Detection",

@@ -199,7 +199,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🏥",
-    github: "https://github.com/jegadeesh17/ClinicalTrialClassification",
+    github: "https://github.com/jegadeesh17/Clinical-Trial-Disease-Classification",
     live: null,
     status: "Complete Pipeline",
     architecture: {
@@ -228,7 +228,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🔥",
-    github: "https://github.com/jegadeesh17/ForestFireIntelligence",
+    github: "https://github.com/jegadeesh17/Forest-fire-risk-intelligence-modis",
     live: null,
     status: "Interactive Dashboard",
     architecture: {
@@ -286,7 +286,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🌐",
-    github: "https://github.com/jegadeesh17/CovidPredictiveAnalytics",
+    github: "https://github.com/jegadeesh17/COVID19-trend-forecasting-and-risk-analytics",
     live: null,
     status: "Complete Analytics",
     architecture: {
@@ -315,7 +315,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "📱",
-    github: "https://github.com/jegadeesh17/SmartphoneAddictionPrediction",
+    github: "https://github.com/jegadeesh17/Smartphone-Addiction-Prediction",
     live: null,
     status: "Competitive ML",
     architecture: {
@@ -344,7 +344,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🛍️",
-    github: "https://github.com/jegadeesh17/MobileProductSegmentation",
+    github: "https://github.com/jegadeesh17/Mobile-Product-Segmentation-and-Recommendation",
     live: null,
     status: "Recommender Engine",
     architecture: {
@@ -373,7 +373,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🏢",
-    github: "https://github.com/jegadeesh17/SalesIntelligenceHub",
+    github: "https://github.com/jegadeesh17/Sales-Intelligence-Hub",
     live: null,
     status: "DB Architecture",
     architecture: {
@@ -402,7 +402,7 @@ const projectsData = [
     ],
     image: null,
     fallbackIcon: "🌍",
-    github: "https://github.com/jegadeesh17/InternationalDebtAnalysis",
+    github: "https://github.com/jegadeesh17/International-Debt-Analysis-System",
     live: null,
     status: "ETL & Analytics",
     architecture: {
@@ -412,6 +412,7 @@ const projectsData = [
     }
   }
 ];
+
 
 const categories = [
   "All Projects",

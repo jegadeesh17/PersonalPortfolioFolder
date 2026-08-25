@@ -9,13 +9,13 @@ const Skills = () => {
       icon: "💻"
     },
     {
-      title: "Machine Learning & DL",
-      skills: ["scikit-learn", "XGBoost", "Random Forest", "TF-IDF", "Keras", "TensorFlow", "PyTorch", "CNN", "EfficientNet"],
+      title: "Machine Learning & Deep Learning",
+      skills: ["scikit-learn", "XGBoost", "Gradient Boosting", "Random Forest", "TF-IDF", "Feature Engineering", "Keras", "TensorFlow", "PyTorch", "EfficientNetB0", "Transfer Learning", "CNN", "Grad-CAM"],
       icon: "🧠"
     },
     {
       title: "NLP & GenAI",
-      skills: ["RAG", "LLM", "Sentence Transformers", "ChromaDB", "Vector DB", "OpenRouter API"],
+      skills: ["RAG", "LLM", "Sentence Transformers (MiniLM)", "ChromaDB", "Vector Database", "OpenRouter API"],
       icon: "💬"
     },
     {

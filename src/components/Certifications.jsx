@@ -35,8 +35,8 @@ const certList = [
   },
   {
     name: "Master Data Science Program",
-    issuer: "GUVI · IITM Incubated",
-    issued: "Jun 2026",
+    issuer: "HCL GUVI · IITM Incubated",
+    issued: "Feb 2026 – Jun 2026",
     category: "Data Science",
     color: "#0a7c4e",
     image: "/certificates/GUVI.jpg",

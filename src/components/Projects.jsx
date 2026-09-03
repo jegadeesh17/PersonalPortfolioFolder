@@ -110,7 +110,7 @@ const projectsData = [
       { label: "Test Suite", value: "70+ Tests" },
       { label: "Architecture", value: "Local-First" }
     ],
-    image: null,
+    image: "/projects/goalos.png",
     fallbackIcon: "🧠",
     github: "https://github.com/jegadeesh17/GoalOS",
     live: null,
@@ -139,7 +139,7 @@ const projectsData = [
       { label: "Revenue Reg.", value: "R² = 0.72" },
       { label: "Data Warehouse", value: "PostgreSQL" }
     ],
-    image: null,
+    image: "/projects/marketing-campaign.png",
     fallbackIcon: "📈",
     github: "https://github.com/jegadeesh17/Marketing-Campaign-Performance-Analysis",
     live: null,
@@ -168,7 +168,7 @@ const projectsData = [
       { label: "Explainability", value: "Grad-CAM Saliency" },
       { label: "Inference", value: "CPU / GPU Ready" }
     ],
-    image: null,
+    image: "/projects/deepfake-detection.png",
     fallbackIcon: "👁️",
     github: "https://github.com/jegadeesh17/DeepfakeDetectionSystem",
     live: null,
@@ -197,7 +197,7 @@ const projectsData = [
       { label: "Corpus Size", value: "60K+ Protocols" },
       { label: "Categories", value: "8 Disease Classes" }
     ],
-    image: null,
+    image: "/projects/clinical-trial.png",
     fallbackIcon: "🏥",
     github: "https://github.com/jegadeesh17/Clinical-Trial-Disease-Classification",
     live: null,
@@ -226,7 +226,7 @@ const projectsData = [
       { label: "Clustering", value: "KMeans Hazard" },
       { label: "Visualization", value: "Folium GeoJSON" }
     ],
-    image: null,
+    image: "/projects/forest-fire.png",
     fallbackIcon: "🔥",
     github: "https://github.com/jegadeesh17/Forest-fire-risk-intelligence-modis",
     live: null,
@@ -255,7 +255,7 @@ const projectsData = [
       { label: "Evaluation", value: "Rubric-Guided" },
       { label: "Engine", value: "Agent Chains" }
     ],
-    image: null,
+    image: "/projects/superkalam.png",
     fallbackIcon: "📚",
     github: "https://github.com/jegadeesh17/SuperKalamProject",
     live: null,
@@ -284,7 +284,7 @@ const projectsData = [
       { label: "Features", value: "Lag & Rolling Stats" },
       { label: "Charts", value: "Interactive Plotly" }
     ],
-    image: null,
+    image: "/projects/covid-analytics.png",
     fallbackIcon: "🌐",
     github: "https://github.com/jegadeesh17/COVID19-trend-forecasting-and-risk-analytics",
     live: null,
@@ -313,7 +313,7 @@ const projectsData = [
       { label: "Optimization", value: "Optuna Tuned" },
       { label: "Metric", value: "ROC-AUC Optimized" }
     ],
-    image: null,
+    image: "/projects/smartphone-addiction.png",
     fallbackIcon: "📱",
     github: "https://github.com/jegadeesh17/Smartphone-Addiction-Prediction",
     live: null,
@@ -342,7 +342,7 @@ const projectsData = [
       { label: "Engine", value: "Cosine Similarity" },
       { label: "Interface", value: "Interactive Streamlit" }
     ],
-    image: null,
+    image: "/projects/mobile-segmentation.png",
     fallbackIcon: "🛍️",
     github: "https://github.com/jegadeesh17/Mobile-Product-Segmentation-and-Recommendation",
     live: null,
@@ -371,7 +371,7 @@ const projectsData = [
       { label: "Security", value: "bcrypt RBAC" },
       { label: "Automation", value: "PL/pgSQL Triggers" }
     ],
-    image: null,
+    image: "/projects/sales-intelligence.png",
     fallbackIcon: "🏢",
     github: "https://github.com/jegadeesh17/Sales-Intelligence-Hub",
     live: null,
@@ -400,7 +400,7 @@ const projectsData = [
       { label: "Schema", value: "Star Schema" },
       { label: "ETL", value: "Python + SQL" }
     ],
-    image: null,
+    image: "/projects/international-debt.png",
     fallbackIcon: "🌍",
     github: "https://github.com/jegadeesh17/International-Debt-Analysis-System",
     live: null,

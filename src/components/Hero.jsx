@@ -8,28 +8,27 @@ const Hero = () => {
         <div className="hero-text">
           <div className="greeting">Hello, I'm</div>
           <h1>Jegadeesh D</h1>
-          <h2 className="role">AI / ML Engineer</h2>
+          <h2 className="role">Software Engineer · AI Systems, RAG & Agents</h2>
           <p className="bio">
-            Engineer with hands-on experience building end-to-end ML, deep learning, and RAG systems.
-            Delivered production-grade projects across NLP, computer vision, and GenAI with FastAPI, Docker, GCP Cloud Run, and measurable benchmarks.
+            Software Engineer specializing in production agent runtimes, hybrid RAG pipelines, and high-throughput ML inference microservices using Python, FastAPI, TypeScript, React 18, and PostgreSQL/SQLite. Focused on deterministic schemas, test-driven engineering (239+ automated pytest tests), and calibrated evaluation benchmarks.
           </p>
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-value">3+</span>
-              <span className="stat-label">Production Deployments</span>
+              <span className="stat-value">239+</span>
+              <span className="stat-label">Automated Tests Passing</span>
             </div>
             <div className="stat-item">
-              <span className="stat-value">98.66%</span>
-              <span className="stat-label">CV Test Accuracy</span>
+              <span className="stat-value">100%</span>
+              <span className="stat-label">Tool-Calling Accuracy</span>
             </div>
             <div className="stat-item">
-              <span className="stat-value">90%</span>
-              <span className="stat-label">RAG Top-5 Hit Rate</span>
+              <span className="stat-value">0.550</span>
+              <span className="stat-label">RAG Retrieval MRR</span>
             </div>
             <div className="stat-item">
               <span className="stat-value">14</span>
-              <span className="stat-label">Engineered Projects</span>
+              <span className="stat-label">Engineered Systems</span>
             </div>
           </div>
 
@@ -44,7 +43,7 @@ const Hero = () => {
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              Download Resume (V3)
+              Download Resume
             </a>
           </div>
         </div>

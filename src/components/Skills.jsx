@@ -4,23 +4,23 @@ import './Skills.css';
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Languages & Database",
-      skills: ["Python", "SQL", "Pandas", "NumPy", "PostgreSQL", "SQLite", "SQLAlchemy", "OpenCV"],
-      icon: "💻"
+      title: "AI Systems & Agent Runtimes",
+      skills: ["Agent Runtimes", "Tool Calling", "Multi-Agent Systems", "Hybrid RAG", "BM25 Sparse Ranking", "Reciprocal Rank Fusion", "ChromaDB", "Sentence Transformers", "OpenRouter / LLM APIs"],
+      icon: "🤖"
     },
     {
-      title: "Machine Learning & Deep Learning",
-      skills: ["scikit-learn", "XGBoost", "Gradient Boosting", "Random Forest", "TF-IDF", "Feature Engineering", "Keras", "TensorFlow", "PyTorch", "EfficientNetB0", "Transfer Learning", "CNN", "Grad-CAM"],
+      title: "Backend & Systems Infrastructure",
+      skills: ["Python (AsyncIO)", "FastAPI", "Pydantic-Settings", "REST APIs", "Docker", "Docker Compose", "PostgreSQL", "SQLite (FTS5)", "Redis", "Uvicorn", "Linux"],
+      icon: "⚙️"
+    },
+    {
+      title: "Machine Learning & Computer Vision",
+      skills: ["scikit-learn", "PyTorch", "EfficientNetB0", "Transfer Learning", "CNN", "Grad-CAM XAI", "XGBoost", "TF-IDF", "Feature Engineering", "Pandas", "NumPy"],
       icon: "🧠"
     },
     {
-      title: "NLP & GenAI",
-      skills: ["RAG", "LLM", "Sentence Transformers (MiniLM)", "ChromaDB", "Vector Database", "OpenRouter API"],
-      icon: "💬"
-    },
-    {
-      title: "Deployment & Tools",
-      skills: ["FastAPI", "Streamlit", "Docker", "GCP Cloud Run", "Hugging Face Hub", "GitHub Actions", "pytest", "Git"],
+      title: "Full-Stack, Testing & Reliability",
+      skills: ["TypeScript", "React 18", "Vite", "pytest (239+ Tests)", "pytest-asyncio", "Evaluator Calibration", "Streamlit", "Git", "GitHub Actions", "GCP Cloud Run"],
       icon: "🚀"
     }
   ];

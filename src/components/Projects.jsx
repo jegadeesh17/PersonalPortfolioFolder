@@ -2,113 +2,53 @@ import React, { useState } from 'react';
 import './Projects.css';
 
 const projectsData = [
-  // ─── RESUME FEATURED PROJECTS (1-3) ───
+  // ─── RESUME FEATURED FLAGSHIP SYSTEMS (1-3) ───
   {
     id: 'financial-copilot',
     title: "Financial Intelligence Copilot",
     featured: true,
     category: "Generative AI & RAG",
-    tagline: "Enterprise Dual-Domain RAG · BFSI Regulatory Compliance & Annual Reports",
-    description: "Architected a dual-domain RAG pipeline over RBI/SEBI regulatory PDFs and HDFC annual reports, chunking 3,459 semantic segments via PyMuPDF with paragraph-aware splitting (800-char / 100-char overlap). Engineered vector search using Sentence Transformers (MiniLM) + ChromaDB, achieving 90% top-5 retrieval hit rate against a ≥70% benchmark.",
+    tagline: "Enterprise Dual-Vertical RAG · BFSI Regulatory Compliance & Hybrid BM25+Dense",
+    description: "Architected an enterprise dual-vertical RAG platform over RBI/SEBI regulatory circulars and BFSI annual filings. Engineered hybrid retrieval combining dense vector embeddings (Sentence Transformers + ChromaDB) with BM25 sparse keyword ranking via Reciprocal Rank Fusion (RRF), achieving 70% hit rate and 0.550 MRR with Portkey LLM gateway failover.",
     bullets: [
       "Chunked 3,459 semantic segments via PyMuPDF with paragraph-aware splitting (800-char / 100-char overlap)",
-      "Engineered vector search using Sentence Transformers (MiniLM) + ChromaDB, achieving 90% top-5 retrieval hit rate",
-      "Exposed production FastAPI endpoint (POST /ask) with confidence gating and page-level citations; packaged with Docker and 76 pytest test cases"
+      "Engineered hybrid search combining dense MiniLM embeddings and BM25 via Reciprocal Rank Fusion (RRF), lifting MRR to 0.550",
+      "Exposed production FastAPI endpoints with confidence gating, Pydantic-Settings, and multi-stage Docker; validated by 83 automated pytest tests"
     ],
-    tags: ["RAG", "Sentence Transformers", "ChromaDB", "FastAPI", "Docker", "OpenRouter API", "PyMuPDF"],
+    tags: ["Hybrid RAG", "BM25", "ChromaDB", "FastAPI", "Docker", "Pydantic-Settings", "PyMuPDF"],
     metrics: [
-      { label: "Top-5 Hit Rate", value: "90%" },
-      { label: "Indexed Chunks", value: "3,459" },
-      { label: "Pytest Suite", value: "76 Passed" }
+      { label: "Retrieval MRR", value: "0.550" },
+      { label: "Top-5 Hit Rate", value: "70.0%" },
+      { label: "Pytest Suite", value: "83 Passed" }
     ],
     image: "/projects/financial-copilot.png",
     fallbackIcon: "📊",
     github: "https://github.com/jegadeesh17/FinancialIntelligenceCopilot",
     live: "https://financialintelligencecopilot.streamlit.app/",
-    status: "Live on Streamlit",
+    status: "Production Ready",
     architecture: {
-      overview: "Dual-domain PDF ingestion pipeline extracting page-level metadata, generating dense vector embeddings via all-MiniLM-L6-v2, indexing into ChromaDB, and providing auditable answers with exact page citations and confidence scoring.",
-      pipeline: ["PDF Ingestion (PyMuPDF)", "Paragraph-aware Chunking", "MiniLM Embeddings", "ChromaDB Vector Store", "Top-5 Similarity Retriever", "OpenRouter LLM Synthesis", "Streamlit UI + FastAPI /ask"],
-      dataset: "Curated BFSI regulatory PDFs (RBI KYC, SEBI guidelines, HDFC quarterly & annual filings)."
+      overview: "Dual-domain PDF ingestion pipeline extracting page-level metadata, generating dense vector embeddings via all-MiniLM-L6-v2 + BM25 sparse index, and providing auditable answers with exact page citations and confidence scoring.",
+      pipeline: ["PDF Ingestion (PyMuPDF)", "Paragraph-aware Chunking", "Hybrid BM25 + Dense Retrieval", "ChromaDB Vector Store", "Portkey LLM Gateway Failover", "Streamlit UI + FastAPI REST API"],
+      dataset: "Curated BFSI regulatory PDFs (RBI KYC, SEBI circulars, HDFC quarterly & annual filings)."
     }
   },
-  {
-    id: 'rice-leaf-disease',
-    title: "AI-Powered Rice Leaf Disease Detection System",
-    featured: true,
-    category: "Computer Vision & DL",
-    tagline: "4-Class CNN Classifier · Precision Agriculture & Explainable AI",
-    description: "Built a 4-class CNN image classifier using EfficientNetB0 transfer learning (Keras 3 + PyTorch) on the Mendeley rice leaf dataset, achieving 98.66% test accuracy across Bacterial Blight, Rice Blast, Brown Spot, and Tungro classes. Integrated Grad-CAM explainability to highlight disease-triggering leaf regions.",
-    bullets: [
-      "Built 4-class CNN image classifier using EfficientNetB0 transfer learning achieving 98.66% test accuracy",
-      "Integrated Grad-CAM (Gradient-weighted Class Activation Mapping) to highlight disease-triggering leaf regions",
-      "Deployed FastAPI inference API (POST /predict) to GCP Cloud Run, published to Hugging Face Hub, and automated CI/CD via GitHub Actions"
-    ],
-    tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "GCP Cloud Run", "Hugging Face", "GitHub Actions"],
-    metrics: [
-      { label: "Test Accuracy", value: "98.66%" },
-      { label: "Disease Classes", value: "4 Classes" },
-      { label: "Inference API", value: "GCP Cloud Run" }
-    ],
-    image: "/projects/rice-disease.png",
-    fallbackIcon: "🌾",
-    github: "https://github.com/jegadeesh17/AI-powered-rice-leaf-detection-system",
-    live: "https://rice-leaf-api-5obmkzpuaa-el.a.run.app/",
-    status: "Live on GCP Cloud Run",
-    architecture: {
-      overview: "Deep learning computer vision system leveraging EfficientNetB0 transfer learning for multi-class foliar pathology diagnosis, combined with Grad-CAM saliency heatmaps for agronomic explainability.",
-      pipeline: ["Deterministic Image Preprocessing (224x224)", "EfficientNetB0 Feature Backbone", "Fine-Tuned Dense Classification Head", "Grad-CAM Saliency Generator", "FastAPI POST /predict Endpoint", "Automated GitHub Actions CI/CD"],
-      dataset: "Mendeley Rice Leaf Disease Image Dataset (Bacterial Blight, Rice Blast, Brown Spot, Tungro)."
-    }
-  },
-  {
-    id: 'support-analytics',
-    title: "Customer Support Tickets Analytics",
-    featured: true,
-    category: "Machine Learning & NLP",
-    tagline: "3-Task ML Data Pipeline · Support Ops Intelligence & Real-Time SLAs",
-    description: "Designed a 3-task ML data pipeline over ~200K support tickets combining TF-IDF text features with structured metadata via scikit-learn ColumnTransformer; achieved 82.1% priority classification accuracy and R² = 0.72 for resolution time regression with class-imbalance handling and holdout validation.",
-    bullets: [
-      "Designed 3-task ML pipeline over ~200K support tickets combining TF-IDF text features with structured metadata",
-      "Achieved 82.1% priority classification accuracy and R² = 0.72 for resolution time regression",
-      "Deployed FastAPI endpoints (POST /predict_priority) with PostgreSQL backend, multi-page Streamlit ops dashboard, and pytest API tests"
-    ],
-    tags: ["scikit-learn", "TF-IDF NLP", "PostgreSQL", "FastAPI", "Streamlit", "Gradient Boosting", "Docker"],
-    metrics: [
-      { label: "Priority Accuracy", value: "82.1%" },
-      { label: "Resolution Reg.", value: "R² = 0.72" },
-      { label: "Data Volume", value: "200K+ Tickets" }
-    ],
-    image: "/projects/support-analytics.png",
-    fallbackIcon: "🎧",
-    github: "https://github.com/jegadeesh17/customer-support-ticket-analytics",
-    live: "https://support-ops-api-242711953247.asia-south1.run.app/app",
-    status: "Live on GCP Cloud Run",
-    architecture: {
-      overview: "Enterprise customer support triage and resolution platform integrating NLP text features, tabular customer metadata, PostgreSQL data warehouse, and multi-model inference pipelines.",
-      pipeline: ["PostgreSQL ETL Ingestion", "TF-IDF + ColumnTransformer Feature Union", "Class-Balanced Gradient Boosting Classifier", "Log-Transformed Resolution Regressor", "Streamlit Ops Dashboard", "FastAPI Production Endpoints"],
-      dataset: "200,000+ support tickets with multi-channel attributes, text descriptions, urgency metrics, and resolution logs."
-    }
-  },
-
-  // ─── EXTENDED AI & ML PORTFOLIO PROJECTS (4-14) ───
   {
     id: 'goalos',
     title: "GoalOS — Personal AI Executive Life Operating System",
-    featured: false,
+    featured: true,
     category: "Generative AI & RAG",
-    tagline: "Agentic AI · Multi-Horizon Goal Alignment & Long-Term Vector Memory",
-    description: "Privacy-first agentic life operating system combining SQLite structured tracking with ChromaDB vector memory, composite retrieval ranking (semantic + recency decay + importance weighting), and tool-calling LLM coach agents via FastAPI and React/Streamlit.",
+    tagline: "Local-First Agent Runtime · Cognitive Hybrid Memory & Tool Calling",
+    description: "Architected a local-first agentic life operating system with a React 18 + Vite frontend and FastAPI backend. Engineered a 5-factor composite memory retrieval engine combining SQLite FTS5 lexical search with ChromaDB cosine similarity, recency decay, and importance weighting, achieving 100% tool-calling accuracy on benchmark.",
     bullets: [
-      "Composite memory retrieval algorithm (40% semantic, 30% importance, 20% recency decay, 10% frequency)",
-      "Agentic LLM coaching pipelines with tool-calling for morning alignment, evening reviews, and weekly retrospectives",
-      "Validated with 70+ automated pytest test cases across memory services and coaching APIs"
+      "Engineered 5-factor composite memory retrieval engine (SQLite FTS5 full-text search, ChromaDB vector similarity, recency decay, importance weighting)",
+      "Implemented autonomous agentic coordinator supporting structured tool calling with 100% benchmark verification (7/7 tests)",
+      "Built resilient offline failover to deterministic heuristic engines during API limits; validated with 109 automated pytest test cases"
     ],
-    tags: ["Agentic AI", "ChromaDB", "FastAPI", "React", "SQLite", "OpenRouter", "pytest"],
+    tags: ["Agent Runtime", "Tool Calling", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
     metrics: [
-      { label: "Retrieval Algo", value: "Composite 4-Factor" },
-      { label: "Test Suite", value: "70+ Tests" },
-      { label: "Architecture", value: "Local-First" }
+      { label: "Tool-Calling Accuracy", value: "100%" },
+      { label: "Memory Retrieval", value: "5-Factor Composite" },
+      { label: "Pytest Suite", value: "109 Passed" }
     ],
     image: "/projects/goalos.png",
     fallbackIcon: "🧠",
@@ -116,9 +56,38 @@ const projectsData = [
     live: null,
     status: "Production Ready",
     architecture: {
-      overview: "Agentic coaching system featuring persistent cognitive memory retrieval, structured goal graphs, and tool-calling LLM workflows.",
-      pipeline: ["User Interaction / Daily Check-in", "Memory Extraction & Embedding", "ChromaDB + SQLite Persistence", "Composite Relevance Ranking", "OpenRouter LLM Synthesis", "FastAPI /coach Endpoints"],
+      overview: "Local-first agent runtime integrating cognitive long-term memory, SQLite FTS5 lexical indexing, and multi-turn tool-calling LLM workflows.",
+      pipeline: ["React 18 + Vite UI", "FastAPI Service Gateway", "5-Factor Cognitive Memory Engine", "SQLite FTS5 + ChromaDB", "Tool Calling Coordinator", "Telemetry & Analytics"],
       dataset: "Structured multi-horizon personal goal hierarchy and journal vector database."
+    }
+  },
+  {
+    id: 'superkalam-upsc',
+    title: "SuperKalam — Agentic UPSC Mains Evaluator Platform",
+    featured: true,
+    category: "Generative AI & RAG",
+    tagline: "Multi-Agent UPSC Evaluator · Indic Mentorship & Calibrated Scoring",
+    description: "Engineered an agentic UPSC Mains answer evaluation and multilingual mentorship platform. Calibrated evaluator agent scoring against 40 official Civil Services previous year questions across 120 benchmark runs, achieving Pearson r = 0.9551 and Spearman rho = 0.9736, with native Indic script feedback in Hindi and Tamil.",
+    bullets: [
+      "Designed multi-agent evaluation chain (Retrieval → Evaluator → Multilingual Feedback) with ChromaDB semantic search",
+      "Benchmarked evaluator calibration across 40 PYQs yielding Pearson r = 0.9551, Spearman rho = 0.9736, and MAE = 0.58",
+      "Enforced strict JSON schema contracts with automated retry handling and native script generation in Hindi and Tamil; verified by 25 pytest tests"
+    ],
+    tags: ["Multi-Agent System", "Evaluator Calibration", "FastAPI", "ChromaDB", "SQLite", "Indic NLP (Hi/Ta)", "Docker"],
+    metrics: [
+      { label: "Pearson Correlation", value: "r = 0.9551" },
+      { label: "Spearman Rank", value: "ρ = 0.9736" },
+      { label: "Pytest Suite", value: "25 Passed" }
+    ],
+    image: "/projects/superkalam.png",
+    fallbackIcon: "📚",
+    github: "https://github.com/jegadeesh17/SuperKalamProject",
+    live: null,
+    status: "Production Ready",
+    architecture: {
+      overview: "Autonomous multi-agent evaluation pipeline with semantic PYQ retrieval, rubric-grounded scoring, and localized Indic mentor feedback.",
+      pipeline: ["PYQ Retrieval (ChromaDB)", "Student Answer Submission", "Evaluator Agent with Schema Lock", "Indic Feedback Agent (EN/HI/TA)", "FastAPI REST API", "SQLite Attempt Store"],
+      dataset: "UPSC Mains Previous Year Questions repository with official syllabus evaluation rubrics."
     }
   },
   {
@@ -238,32 +207,32 @@ const projectsData = [
     }
   },
   {
-    id: 'superkalam-upsc',
-    title: "SuperKalam — Agentic UPSC Mains Mock Test Platform",
+    id: 'rice-leaf-disease',
+    title: "AI-Powered Rice Leaf Disease Detection System",
     featured: false,
-    category: "Generative AI & RAG",
-    tagline: "Multi-Lingual Agentic AI · Automated Mains Answer Writing Evaluation",
-    description: "Agentic AI educational platform providing timed civil services mock tests with random Previous Year Questions (PYQs). Employs a multi-agent LLM chain and ChromaDB RAG to evaluate student answers against rigorous UPSC scoring rubrics with feedback in English, Hindi, and Tamil.",
+    category: "Computer Vision & DL",
+    tagline: "4-Class CNN Classifier · Precision Agriculture & Explainable AI",
+    description: "Built a 4-class CNN image classifier using EfficientNetB0 transfer learning (Keras 3 + PyTorch) on the Mendeley rice leaf dataset, achieving 98.66% test accuracy across Bacterial Blight, Rice Blast, Brown Spot, and Tungro classes. Integrated Grad-CAM explainability to highlight disease-triggering leaf regions.",
     bullets: [
-      "Built multi-agent evaluation chain combining rubric retrieval, semantic alignment, and score breakdown",
-      "Integrated ChromaDB RAG for standard model answers and official syllabus keyword matching",
-      "Supported multi-lingual mentor feedback output across English, Hindi, and Tamil"
+      "Built 4-class CNN image classifier using EfficientNetB0 transfer learning achieving 98.66% test accuracy",
+      "Integrated Grad-CAM (Gradient-weighted Class Activation Mapping) to highlight disease-triggering leaf regions",
+      "Deployed FastAPI inference API (POST /predict) to GCP Cloud Run, published to Hugging Face Hub, and automated CI/CD via GitHub Actions"
     ],
-    tags: ["Agentic AI", "RAG", "LLMs", "Multi-Lingual", "FastAPI", "ChromaDB"],
+    tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "GCP Cloud Run", "Hugging Face", "GitHub Actions"],
     metrics: [
-      { label: "Languages", value: "EN / HI / TA" },
-      { label: "Evaluation", value: "Rubric-Guided" },
-      { label: "Engine", value: "Agent Chains" }
+      { label: "Test Accuracy", value: "98.66%" },
+      { label: "Disease Classes", value: "4 Classes" },
+      { label: "Inference API", value: "GCP Cloud Run" }
     ],
-    image: "/projects/superkalam.png",
-    fallbackIcon: "📚",
-    github: "https://github.com/jegadeesh17/SuperKalamProject",
-    live: null,
-    status: "Agent System",
+    image: "/projects/rice-disease.png",
+    fallbackIcon: "🌾",
+    github: "https://github.com/jegadeesh17/AI-powered-rice-leaf-detection-system",
+    live: "https://rice-leaf-api-5obmkzpuaa-el.a.run.app/",
+    status: "Live on GCP Cloud Run",
     architecture: {
-      overview: "Autonomous evaluation pipeline simulating senior UPSC mentors using multi-step agent reasoning and rubric retrieval.",
-      pipeline: ["PYQ Question Retrieval", "Student Answer Submission", "ChromaDB Rubric Context Extraction", "Multi-Agent Scoring LLM Chain", "Multi-Lingual Mentor Feedback Synthesis"],
-      dataset: "UPSC Mains Previous Year Questions repository and official syllabus scoring rubrics."
+      overview: "Deep learning computer vision system leveraging EfficientNetB0 transfer learning for multi-class foliar pathology diagnosis, combined with Grad-CAM saliency heatmaps for agronomic explainability.",
+      pipeline: ["Deterministic Image Preprocessing (224x224)", "EfficientNetB0 Feature Backbone", "Fine-Tuned Dense Classification Head", "Grad-CAM Saliency Generator", "FastAPI POST /predict Endpoint", "Automated GitHub Actions CI/CD"],
+      dataset: "Mendeley Rice Leaf Disease Image Dataset (Bacterial Blight, Rice Blast, Brown Spot, Tungro)."
     }
   },
   {

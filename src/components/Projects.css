@@ -124,6 +124,28 @@
   background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
 }
 
+/* Scrim wash for featured cards: these are the only cards that stack the
+   featured-ribbon (top-left) with the live-status pill (top-right), and
+   each screenshot's own app header/logo sits right at the crop line,
+   colliding with the badges. This mutes that content and gives both
+   badges a consistent, legible backdrop. */
+.project-card--featured .project-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.58) 0%,
+    rgba(15, 23, 42, 0.30) 50%,
+    rgba(15, 23, 42, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
 .project-image {
   width: 100%;
   height: 100%;

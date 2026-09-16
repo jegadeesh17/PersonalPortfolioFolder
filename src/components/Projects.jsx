@@ -24,8 +24,9 @@ const projectsData = [
     image: "/projects/financial-copilot.png",
     fallbackIcon: "📊",
     github: "https://github.com/jegadeesh17/FinancialIntelligenceCopilot",
-    live: "https://financialintelligencecopilot.streamlit.app/",
-    status: "Production Ready",
+    live: "https://financial-copilot-api-242711953247.asia-south1.run.app/app",
+    docs: "https://financial-copilot-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
       overview: "Dual-domain PDF ingestion pipeline extracting page-level metadata, generating dense vector embeddings via all-MiniLM-L6-v2 + BM25 sparse index, and providing auditable answers with exact page citations and confidence scoring.",
       pipeline: ["PDF Ingestion (PyMuPDF)", "Paragraph-aware Chunking", "Hybrid BM25 + Dense Retrieval", "ChromaDB Vector Store", "Portkey LLM Gateway Failover", "Streamlit UI + FastAPI REST API"],
@@ -42,7 +43,7 @@ const projectsData = [
     bullets: [
       "Engineered 5-factor composite memory retrieval engine (SQLite FTS5 full-text search, ChromaDB vector similarity, recency decay, importance weighting)",
       "Implemented autonomous agentic coordinator supporting structured tool calling with 100% benchmark verification (7/7 tests)",
-      "Built resilient offline failover to deterministic heuristic engines during API limits; validated with 109 automated pytest test cases"
+      "Dogfooded daily over 2-month personal journal; demo seeded with curated 14-day authentic slice; 109 pytests passing"
     ],
     tags: ["Agent Runtime", "Tool Calling", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
     metrics: [
@@ -53,8 +54,9 @@ const projectsData = [
     image: "/projects/goalos.png",
     fallbackIcon: "🧠",
     github: "https://github.com/jegadeesh17/GoalOS",
-    live: null,
-    status: "Production Ready",
+    live: "https://goalos-api-242711953247.asia-south1.run.app/app",
+    docs: "https://goalos-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
       overview: "Local-first agent runtime integrating cognitive long-term memory, SQLite FTS5 lexical indexing, and multi-turn tool-calling LLM workflows.",
       pipeline: ["React 18 + Vite UI", "FastAPI Service Gateway", "5-Factor Cognitive Memory Engine", "SQLite FTS5 + ChromaDB", "Tool Calling Coordinator", "Telemetry & Analytics"],
@@ -82,8 +84,9 @@ const projectsData = [
     image: "/projects/superkalam.png",
     fallbackIcon: "📚",
     github: "https://github.com/jegadeesh17/SuperKalamProject",
-    live: null,
-    status: "Production Ready",
+    live: "https://superkalam-api-242711953247.asia-south1.run.app/app",
+    docs: "https://superkalam-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
       overview: "Autonomous multi-agent evaluation pipeline with semantic PYQ retrieval, rubric-grounded scoring, and localized Indic mentor feedback.",
       pipeline: ["PYQ Retrieval (ChromaDB)", "Student Answer Submission", "Evaluator Agent with Schema Lock", "Indic Feedback Agent (EN/HI/TA)", "FastAPI REST API", "SQLite Attempt Store"],
@@ -111,8 +114,9 @@ const projectsData = [
     image: "/projects/support-analytics.png",
     fallbackIcon: "🎧",
     github: "https://github.com/jegadeesh17/customer-support-ticket-analytics",
-    live: null,
-    status: "Production Ready",
+    live: "https://support-ops-api-242711953247.asia-south1.run.app/app",
+    docs: "https://support-ops-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
       overview: "Autonomous customer support platform combining multi-task machine learning inference with an agentic escalation tier and deterministic JSON contracts.",
       pipeline: ["Ticket Ingestion", "Text Preprocessing & TF-IDF", "Multi-Task ML Inference", "Agentic Escalation Router", "Pydantic Schema Validation", "FastAPI REST API"],
@@ -574,6 +578,20 @@ const Projects = () => {
                     </svg>
                   </a>
                 )}
+                {project.docs && (
+                  <a
+                    href={project.docs}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link ghost-link"
+                    title="Interactive Swagger API Documentation"
+                  >
+                    API Docs
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </a>
+                )}
                 <button
                   type="button"
                   className="project-link info-link"
@@ -659,6 +677,11 @@ const Projects = () => {
               {activeModal.live && (
                 <a href={activeModal.live} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                   Open Live Deployed Application →
+                </a>
+              )}
+              {activeModal.docs && (
+                <a href={activeModal.docs} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                  Interactive Swagger API Docs
                 </a>
               )}
               {activeModal.github && (

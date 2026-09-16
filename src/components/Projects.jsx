@@ -13,13 +13,13 @@ const projectsData = [
     bullets: [
       "Chunked 3,459 semantic segments via PyMuPDF with paragraph-aware splitting (800-char / 100-char overlap)",
       "Engineered hybrid search combining dense MiniLM embeddings and BM25 via Reciprocal Rank Fusion (RRF), lifting MRR to 0.550",
-      "Exposed production FastAPI endpoints with confidence gating, Pydantic-Settings, and multi-stage Docker; validated by 83 automated pytest tests"
+      "Exposed production FastAPI endpoints with confidence gating, Pydantic-Settings, and multi-stage Docker; validated by 88 automated pytest tests"
     ],
     tags: ["Hybrid RAG", "BM25", "ChromaDB", "FastAPI", "Docker", "Pydantic-Settings", "PyMuPDF"],
     metrics: [
       { label: "Retrieval MRR", value: "0.550" },
       { label: "Top-5 Hit Rate", value: "70.0%" },
-      { label: "Pytest Suite", value: "83 Passed" }
+      { label: "Pytest Suite", value: "88 Passed" }
     ],
     image: "/projects/financial-copilot.png",
     fallbackIcon: "📊",
@@ -43,13 +43,13 @@ const projectsData = [
     bullets: [
       "Engineered 5-factor composite memory retrieval engine (SQLite FTS5 full-text search, ChromaDB vector similarity, recency decay, importance weighting)",
       "Implemented autonomous agentic coordinator supporting structured tool calling with 100% benchmark verification (7/7 tests)",
-      "Dogfooded daily over 2-month personal journal; demo seeded with curated 14-day authentic slice; 109 pytests passing"
+      "Dogfooded daily over 2-month personal journal; demo seeded with curated 14-day authentic slice; 130 pytests passing"
     ],
     tags: ["Agent Runtime", "Tool Calling", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
     metrics: [
       { label: "Tool-Calling Accuracy", value: "100%" },
       { label: "Memory Retrieval", value: "5-Factor Composite" },
-      { label: "Pytest Suite", value: "109 Passed" }
+      { label: "Pytest Suite", value: "130 Passed" }
     ],
     image: "/projects/goalos.png",
     fallbackIcon: "🧠",
@@ -68,18 +68,18 @@ const projectsData = [
     title: "SuperKalam — Agentic UPSC Mains Evaluator Platform",
     featured: true,
     category: "Generative AI & RAG",
-    tagline: "Multi-Agent UPSC Evaluator · Indic Mentorship & Calibrated Scoring",
-    description: "Engineered an agentic UPSC Mains answer evaluation and multilingual mentorship platform. Calibrated evaluator agent scoring against 40 official Civil Services previous year questions across 120 benchmark runs, achieving Pearson r = 0.9551 and Spearman rho = 0.9736, with native Indic script feedback in Hindi and Tamil.",
+    tagline: "Multi-Agent UPSC Evaluator · Indic Mentorship & Schema-Validated Scoring",
+    description: "Engineered an agentic UPSC Mains answer evaluation and multilingual mentorship platform. Designed a multi-agent pipeline (Retrieval → Evaluator → Feedback) scoring student answers against 40 official Civil Services previous year questions, with strict Pydantic v2 JSON contracts and native Indic script feedback in Hindi and Tamil.",
     bullets: [
       "Designed multi-agent evaluation chain (Retrieval → Evaluator → Multilingual Feedback) with ChromaDB semantic search",
-      "Benchmarked evaluator calibration across 40 PYQs yielding Pearson r = 0.9551, Spearman rho = 0.9736, and MAE = 0.58",
-      "Enforced strict JSON schema contracts with automated retry handling and native script generation in Hindi and Tamil; verified by 25 pytest tests"
+      "Enforced strict Pydantic v2 JSON schema contracts (EvaluatorOutput) on all LLM evaluator output, with automatic retry-and-repair on malformed responses and HTTP 429 circuit breaking",
+      "Generated native-script feedback in Hindi and Tamil; verified by 27 pytest tests"
     ],
-    tags: ["Multi-Agent System", "Evaluator Calibration", "FastAPI", "ChromaDB", "SQLite", "Indic NLP (Hi/Ta)", "Docker"],
+    tags: ["Multi-Agent System", "Pydantic v2 Contracts", "FastAPI", "ChromaDB", "SQLite", "Indic NLP (Hi/Ta)", "Docker"],
     metrics: [
-      { label: "Pearson Correlation", value: "r = 0.9551" },
-      { label: "Spearman Rank", value: "ρ = 0.9736" },
-      { label: "Pytest Suite", value: "25 Passed" }
+      { label: "Schema Validation", value: "100% Pydantic v2" },
+      { label: "Fallback Handling", value: "429 Circuit Breaker" },
+      { label: "Pytest Suite", value: "27 Passed" }
     ],
     image: "/projects/superkalam.png",
     fallbackIcon: "📚",
@@ -103,13 +103,13 @@ const projectsData = [
     bullets: [
       "Engineered multi-task ML pipelines predicting priority, resolution time, and customer satisfaction (82.1% priority accuracy, R² = 0.719 resolution regression, zero data leakage)",
       "Built autonomous agentic triage engine with deterministic Pydantic schema validation and sentiment-based escalation routing",
-      "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 15 automated pytest test cases"
+      "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 17 automated pytest test cases"
     ],
     tags: ["Agentic Triage", "FastAPI", "scikit-learn", "Pydantic", "Docker", "pytest", "Multi-Task ML"],
     metrics: [
       { label: "Triage Accuracy", value: "82.1%" },
       { label: "Resolution Reg.", value: "R² = 0.719" },
-      { label: "Pytest Suite", value: "15 Passed" }
+      { label: "Pytest Suite", value: "17 Passed" }
     ],
     image: "/projects/support-analytics.png",
     fallbackIcon: "🎧",

@@ -99,16 +99,16 @@ const projectsData = [
     featured: true,
     category: "Machine Learning & NLP",
     tagline: "Multi-Task Classification & Agentic Escalation Triage Engine",
-    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed multi-output classifiers and regression models achieving 82.1% triage accuracy and R² = 0.81 customer satisfaction forecasting, coupled with an autonomous agentic escalation tier with Pydantic contracts and FastAPI microservice.",
+    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed a two-tier triage system achieving 82.1% priority accuracy and R² = 0.719 resolution-time regression with zero data leakage, coupled with an autonomous agentic escalation tier with Pydantic contracts and FastAPI microservice.",
     bullets: [
-      "Engineered multi-task ML pipelines predicting priority, issue category, and customer satisfaction (82.1% accuracy, R² = 0.81)",
+      "Engineered multi-task ML pipelines predicting priority, resolution time, and customer satisfaction (82.1% priority accuracy, R² = 0.719 resolution regression, zero data leakage)",
       "Built autonomous agentic triage engine with deterministic Pydantic schema validation and sentiment-based escalation routing",
       "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 15 automated pytest test cases"
     ],
     tags: ["Agentic Triage", "FastAPI", "scikit-learn", "Pydantic", "Docker", "pytest", "Multi-Task ML"],
     metrics: [
       { label: "Triage Accuracy", value: "82.1%" },
-      { label: "Satisfaction Reg.", value: "R² = 0.81" },
+      { label: "Resolution Reg.", value: "R² = 0.719" },
       { label: "Pytest Suite", value: "15 Passed" }
     ],
     image: "/projects/support-analytics.png",

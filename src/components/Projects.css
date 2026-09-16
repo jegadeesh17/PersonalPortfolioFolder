@@ -135,12 +135,14 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 42%;
+  height: max(42%, 170px);
   background: linear-gradient(
     to bottom,
-    rgba(15, 23, 42, 0.58) 0%,
-    rgba(15, 23, 42, 0.30) 50%,
-    rgba(15, 23, 42, 0) 100%
+    rgba(15, 23, 42, 1) 0px,
+    rgba(15, 23, 42, 1) 66px,
+    rgba(15, 23, 42, 0.55) 105px,
+    rgba(15, 23, 42, 0.15) 140px,
+    rgba(15, 23, 42, 0) 170px
   );
   z-index: 1;
   pointer-events: none;

@@ -99,10 +99,10 @@ const projectsData = [
     featured: true,
     category: "Machine Learning & NLP",
     tagline: "Multi-Task Classification & Agentic Escalation Triage Engine",
-    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed a two-tier triage system over ~200K tickets achieving 82.1% priority accuracy and R² = 0.719 resolution-time regression with zero data leakage; Tier 2 automatically activates only for low-confidence (<67%) or severe-resolution (>185h) predictions, powered by Groq's LLM API with a deterministic heuristic fallback.",
+    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed a two-tier triage system over ~200K tickets achieving 82.1% priority accuracy and R² = 0.719 resolution-time regression with zero data leakage; Tier 2 automatically activates only for low-confidence (<67%) predictions, severe-resolution (>185h) estimates, or a high-risk Enterprise segment, powered by Groq's LLM API with a deterministic heuristic fallback.",
     bullets: [
       "Engineered multi-task ML pipelines predicting priority, resolution time, and customer satisfaction (82.1% priority accuracy, R² = 0.719 resolution regression, zero data leakage)",
-      "Built autonomous two-tier agentic triage engine with deterministic Pydantic schema validation, gated automatically on Tier-1 confidence and predicted resolution time",
+      "Built autonomous two-tier agentic triage engine with deterministic Pydantic schema validation, gated automatically on Tier-1 confidence, predicted resolution time, or a high-risk Enterprise segment",
       "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 36 automated pytest test cases"
     ],
     tags: ["Agentic Triage", "FastAPI", "scikit-learn", "Pydantic", "Docker", "pytest", "Multi-Task ML"],

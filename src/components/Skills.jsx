@@ -20,7 +20,7 @@ const Skills = () => {
     },
     {
       title: "Full-Stack, Testing & Reliability",
-      skills: ["TypeScript", "React 18", "Vite", "pytest (262+ Tests)", "pytest-asyncio", "Evaluator Calibration", "Streamlit", "Git", "GitHub Actions", "GCP Cloud Run"],
+      skills: ["TypeScript", "React 18", "Vite", "pytest (281+ Tests)", "pytest-asyncio", "Evaluator Calibration", "Streamlit", "Git", "GitHub Actions", "GCP Cloud Run"],
       icon: "🚀"
     }
   ];

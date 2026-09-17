@@ -10,12 +10,12 @@ const Hero = () => {
           <h1>Jegadeesh D</h1>
           <h2 className="role">Software Engineer · AI Systems, RAG & Agents</h2>
           <p className="bio">
-            Software Engineer specializing in deployed agent runtimes, hybrid RAG pipelines, and ML inference microservices using Python, FastAPI, TypeScript, React 18, and PostgreSQL/SQLite. Focused on deterministic schemas, test-driven engineering (262+ automated pytest tests), and calibrated evaluation benchmarks.
+            Software Engineer specializing in deployed agent runtimes, hybrid RAG pipelines, and ML inference microservices using Python, FastAPI, TypeScript, React 18, and PostgreSQL/SQLite. Focused on deterministic schemas, test-driven engineering (281+ automated pytest tests), and calibrated evaluation benchmarks.
           </p>
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-value">262+</span>
+              <span className="stat-value">281+</span>
               <span className="stat-label">Automated Tests Passing</span>
             </div>
             <div className="stat-item">

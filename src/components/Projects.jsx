@@ -99,17 +99,18 @@ const projectsData = [
     featured: true,
     category: "Machine Learning & NLP",
     tagline: "Multi-Task Classification & Agentic Escalation Triage Engine",
-    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed a two-tier triage system achieving 82.1% priority accuracy and R² = 0.719 resolution-time regression with zero data leakage, coupled with an autonomous agentic escalation tier with Pydantic contracts and FastAPI microservice.",
+    description: "Production multi-task customer support intelligence platform with automated agentic escalation. Deployed a two-tier triage system over ~200K tickets achieving 82.1% priority accuracy and R² = 0.719 resolution-time regression with zero data leakage; Tier 2 automatically activates only for low-confidence (<67%) or severe-resolution (>185h) predictions, powered by Groq's LLM API with a deterministic heuristic fallback.",
     bullets: [
       "Engineered multi-task ML pipelines predicting priority, resolution time, and customer satisfaction (82.1% priority accuracy, R² = 0.719 resolution regression, zero data leakage)",
-      "Built autonomous agentic triage engine with deterministic Pydantic schema validation and sentiment-based escalation routing",
-      "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 17 automated pytest test cases"
+      "Built autonomous two-tier agentic triage engine with deterministic Pydantic schema validation, gated automatically on Tier-1 confidence and predicted resolution time",
+      "Exposed FastAPI REST API microservice with containerized Docker deployment; validated by 36 automated pytest test cases"
     ],
     tags: ["Agentic Triage", "FastAPI", "scikit-learn", "Pydantic", "Docker", "pytest", "Multi-Task ML"],
     metrics: [
       { label: "Triage Accuracy", value: "82.1%" },
       { label: "Resolution Reg.", value: "R² = 0.719" },
-      { label: "Pytest Suite", value: "17 Passed" }
+      { label: "Auto-Handled (No Escalation)", value: "73.6%" },
+      { label: "Pytest Suite", value: "36 Passed" }
     ],
     image: "/projects/support-analytics.png",
     fallbackIcon: "🎧",

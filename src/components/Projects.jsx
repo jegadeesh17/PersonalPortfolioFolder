@@ -8,10 +8,10 @@ const projectsData = [
     title: "Financial Intelligence Copilot",
     featured: true,
     category: "Generative AI & RAG",
-    tagline: "Enterprise Dual-Vertical RAG · BFSI Regulatory Compliance & Hybrid BM25+Dense",
-    description: "Architected an enterprise dual-vertical RAG platform over RBI/SEBI regulatory circulars and BFSI annual filings. Engineered hybrid retrieval combining dense vector embeddings (Sentence Transformers + ChromaDB) with BM25 sparse keyword ranking via Reciprocal Rank Fusion (RRF), achieving 70% hit rate and 0.550 MRR with Portkey LLM gateway failover.",
+    tagline: "Enterprise Hybrid RAG · Multi-Sector Regulatory & Financial Filings Retrieval",
+    description: "Architected an enterprise hybrid RAG platform over regulatory circulars and corporate annual reports spanning BFSI and other sectors. Engineered hybrid retrieval combining dense vector embeddings (Sentence Transformers + ChromaDB) with BM25 sparse keyword ranking via Reciprocal Rank Fusion (RRF), achieving 70% hit rate and 0.550 MRR with Portkey LLM gateway failover.",
     bullets: [
-      "Chunked 3,459 semantic segments via PyMuPDF with paragraph-aware splitting (800-char / 100-char overlap)",
+      "Chunked 12,075 semantic segments via PyMuPDF with paragraph-aware splitting (800-char / 100-char overlap)",
       "Engineered hybrid search combining dense MiniLM embeddings and BM25 via Reciprocal Rank Fusion (RRF), lifting MRR to 0.550",
       "Exposed production FastAPI endpoints with confidence gating, Pydantic-Settings, and multi-stage Docker; validated by 88 automated pytest tests"
     ],
@@ -30,7 +30,7 @@ const projectsData = [
     architecture: {
       overview: "Dual-domain PDF ingestion pipeline extracting page-level metadata, generating dense vector embeddings via all-MiniLM-L6-v2 + BM25 sparse index, and providing auditable answers with exact page citations and confidence scoring.",
       pipeline: ["PDF Ingestion (PyMuPDF)", "Paragraph-aware Chunking", "Hybrid BM25 + Dense Retrieval", "ChromaDB Vector Store", "Portkey LLM Gateway Failover", "Streamlit UI + FastAPI REST API"],
-      dataset: "Curated BFSI regulatory PDFs (RBI KYC, SEBI circulars, HDFC quarterly & annual filings)."
+      dataset: "12-document corpus of regulatory circulars and corporate annual reports spanning BFSI and other sectors (RBI KYC & fraud-reporting directions, SEBI disclosure & LODR circulars, IRDAI insurance circulars, HDFC & ICICI bank annual reports, TCS, RIL, and Tata Consumer annual reports)."
     }
   },
   {
@@ -39,15 +39,15 @@ const projectsData = [
     featured: true,
     category: "Generative AI & RAG",
     tagline: "Local-First Agent Runtime · Cognitive Hybrid Memory & Tool Calling",
-    description: "Architected a local-first agentic life operating system with a React 18 + Vite frontend and FastAPI backend. Engineered a 5-factor composite memory retrieval engine combining SQLite FTS5 lexical search with ChromaDB cosine similarity, recency decay, and importance weighting, achieving 100% tool-calling accuracy on benchmark.",
+    description: "Architected a local-first agentic life operating system with a React 18 + Vite frontend and FastAPI backend. Engineered a 5-factor composite memory retrieval engine combining SQLite FTS5 lexical search with ChromaDB cosine similarity, recency decay, and importance weighting, exposing 6 schema-validated tools across 4 domain namespaces with a 100% (7/7) execution-reliability and unauthorized-tool-rejection benchmark pass rate.",
     bullets: [
       "Engineered 5-factor composite memory retrieval engine (SQLite FTS5 full-text search, ChromaDB vector similarity, recency decay, importance weighting)",
-      "Implemented autonomous agentic coordinator supporting structured tool calling with 100% benchmark verification (7/7 tests)",
+      "Implemented autonomous agentic coordinator exposing 6 schema-validated tools across 4 domain namespaces, with a 100% (7/7) execution-reliability and unauthorized-tool-rejection benchmark pass rate",
       "Dogfooded daily over 2-month personal journal; demo seeded with curated 14-day authentic slice; 130 pytests passing"
     ],
     tags: ["Agent Runtime", "Tool Calling", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
     metrics: [
-      { label: "Tool-Calling Accuracy", value: "100%" },
+      { label: "Tool Execution Reliability", value: "100% (7/7)" },
       { label: "Memory Retrieval", value: "5-Factor Composite" },
       { label: "Pytest Suite", value: "130 Passed" }
     ],
@@ -69,7 +69,7 @@ const projectsData = [
     featured: true,
     category: "Generative AI & RAG",
     tagline: "Multi-Agent UPSC Evaluator · Indic Mentorship & Schema-Validated Scoring",
-    description: "Engineered an agentic UPSC Mains answer evaluation and multilingual mentorship platform. Designed a multi-agent pipeline (Retrieval → Evaluator → Feedback) scoring student answers against 40 official Civil Services previous year questions, with strict Pydantic v2 JSON contracts and native Indic script feedback in Hindi and Tamil.",
+    description: "Engineered an agentic UPSC Mains answer evaluation and multilingual mentorship platform. Designed a multi-agent pipeline (Retrieval → Evaluator → Feedback) scoring student answers against 40 curated Civil Services-style previous year questions, with strict Pydantic v2 JSON contracts and native Indic script feedback in Hindi and Tamil.",
     bullets: [
       "Designed multi-agent evaluation chain (Retrieval → Evaluator → Multilingual Feedback) with ChromaDB semantic search",
       "Enforced strict Pydantic v2 JSON schema contracts (EvaluatorOutput) on all LLM evaluator output, with automatic retry-and-repair on malformed responses and HTTP 429 circuit breaking",

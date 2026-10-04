@@ -8,26 +8,26 @@ const Hero = () => {
         <div className="hero-text">
           <div className="greeting">Hello, I'm</div>
           <h1>Jegadeesh D</h1>
-          <h2 className="role">Software Engineer · AI Systems, RAG & Agents</h2>
+          <h2 className="role">AI Engineer · Agents, RAG & Evaluation</h2>
           <p className="bio">
-            Software Engineer specializing in deployed agent runtimes, hybrid RAG pipelines, and ML inference microservices using Python, FastAPI, TypeScript, React 18, and PostgreSQL/SQLite. Focused on deterministic schemas, test-driven engineering (281+ automated pytest tests), and calibrated evaluation benchmarks.
+            AI Engineer building tool-using research agents, hybrid RAG pipelines, and evaluation harnesses with Python, FastAPI, and TypeScript/React. Focused on deterministic schemas, test-driven engineering (660 automated pytest tests across 4 projects), and measured LLM and retrieval quality (RAGAS, reference-labelled benchmarks).
           </p>
 
           <div className="hero-stats">
             <div className="stat-item">
-              <span className="stat-value">281+</span>
-              <span className="stat-label">Automated Tests Passing</span>
+              <span className="stat-value">660</span>
+              <span className="stat-label">Automated Tests (4 Flagships)</span>
             </div>
             <div className="stat-item">
-              <span className="stat-value">100%</span>
-              <span className="stat-label">Tool Execution Reliability</span>
+              <span className="stat-value">17/20</span>
+              <span className="stat-label">Agent Verdicts Correct (Reference Set)</span>
             </div>
             <div className="stat-item">
-              <span className="stat-value">0.550</span>
-              <span className="stat-label">RAG Retrieval MRR</span>
+              <span className="stat-value">0.788</span>
+              <span className="stat-label">RAGAS Faithfulness (Hybrid RAG)</span>
             </div>
             <div className="stat-item">
-              <span className="stat-value">14</span>
+              <span className="stat-value">11</span>
               <span className="stat-label">Engineered Systems</span>
             </div>
           </div>

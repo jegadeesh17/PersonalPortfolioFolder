@@ -5,12 +5,12 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "AI Systems & Agent Runtimes",
-      skills: ["Agent Runtimes", "Tool Calling", "Multi-Agent Systems", "Hybrid RAG", "BM25 Sparse Ranking", "Reciprocal Rank Fusion", "ChromaDB", "Sentence Transformers", "OpenRouter / LLM APIs"],
+      skills: ["Tool-Calling Agents", "Multi-Agent Systems", "Verification Loops", "Hybrid RAG", "BM25 Sparse Ranking", "Reciprocal Rank Fusion", "ChromaDB", "Sentence Transformers", "OpenRouter / LLM APIs"],
       icon: "🤖"
     },
     {
       title: "Backend & Systems Infrastructure",
-      skills: ["Python (AsyncIO)", "FastAPI", "Pydantic-Settings", "REST APIs", "Docker", "Docker Compose", "PostgreSQL", "SQLite (FTS5)", "Redis", "Uvicorn", "Linux"],
+      skills: ["Python (AsyncIO)", "FastAPI", "Pydantic-Settings", "REST APIs", "Docker", "Docker Compose", "PostgreSQL", "SQLite (FTS5)", "Uvicorn", "Linux"],
       icon: "⚙️"
     },
     {
@@ -20,7 +20,7 @@ const Skills = () => {
     },
     {
       title: "Full-Stack, Testing & Reliability",
-      skills: ["TypeScript", "React 18", "Vite", "pytest (281+ Tests)", "pytest-asyncio", "Evaluator Calibration", "Streamlit", "Git", "GitHub Actions", "GCP Cloud Run"],
+      skills: ["TypeScript", "React 18", "Vite", "pytest (660 Tests)", "RAGAS", "Reference-Labelled Evals", "Quote Grounding", "Streamlit", "Git", "GitHub Actions", "GCP Cloud Run"],
       icon: "🚀"
     }
   ];

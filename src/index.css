@@ -18,7 +18,6 @@
   --glow-gold: rgba(245, 166, 60, 0.30);
   --glow-violet: rgba(118, 96, 238, 0.24);
   --glow-magenta: rgba(226, 64, 132, 0.20);
-  --band-bg: rgba(255, 255, 255, 0.72);
   /* Uniform dot matrix layered over the glow */
   --dot-matrix: radial-gradient(circle, rgba(100, 116, 139, 0.23) 1px, transparent 1.2px);
 

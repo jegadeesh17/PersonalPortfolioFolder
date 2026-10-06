@@ -3,6 +3,16 @@ import './Certifications.css';
 
 const certList = [
   {
+    name: "Master Data Science Program",
+    issuer: "HCL GUVI · IITM Incubated",
+    issued: "Feb 2026 – Jun 2026",
+    category: "Data Science",
+    color: "#0a7c4e",
+    image: "/certificates/GUVI.jpg",
+    credential: "GUVI-DS",
+    verifyUrl: null
+  },
+  {
     name: "Google Project Management",
     issuer: "Google · Coursera",
     issued: "Aug 2024",
@@ -11,16 +21,6 @@ const certList = [
     image: "/certificates/Coursera FDTV19Y9MZA9.jpg",
     credential: "FDTV19Y9MZA9",
     verifyUrl: "https://coursera.org/verify/professional-cert/FDTV19Y9MZA9"
-  },
-  {
-    name: "Microeconomics Principles",
-    issuer: "University of Illinois · Coursera",
-    issued: "Apr 2023",
-    category: "Economics",
-    color: "#13294B",
-    image: "/certificates/Coursera U6HE6DF4VXFW.jpg",
-    credential: "U6HE6DF4VXFW",
-    verifyUrl: "https://coursera.org/verify/U6HE6DF4VXFW"
   },
   {
     name: "Financial Markets",
@@ -34,14 +34,14 @@ const certList = [
     verifyUrl: "https://coursera.org/verify/YPJMEBHZYVQS"
   },
   {
-    name: "Master Data Science Program",
-    issuer: "HCL GUVI · IITM Incubated",
-    issued: "Feb 2026 – Jun 2026",
-    category: "Data Science",
-    color: "#0a7c4e",
-    image: "/certificates/GUVI.jpg",
-    credential: "GUVI-DS",
-    verifyUrl: null
+    name: "Microeconomics Principles",
+    issuer: "University of Illinois · Coursera",
+    issued: "Apr 2023",
+    category: "Economics",
+    color: "#13294B",
+    image: "/certificates/Coursera U6HE6DF4VXFW.jpg",
+    credential: "U6HE6DF4VXFW",
+    verifyUrl: "https://coursera.org/verify/U6HE6DF4VXFW"
   }
 ];
 

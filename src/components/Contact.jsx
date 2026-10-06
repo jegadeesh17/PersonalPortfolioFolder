@@ -50,12 +50,6 @@ const Contact = () => {
               </svg>
               HuggingFace
             </a>
-            <a href="https://share.streamlit.io/user/jegadeesh17" target="_blank" rel="noopener noreferrer" className="social-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21.27 9.46c-1.21-.62-2.76-.95-4.27-.64L12 2 6.46 11.15C4.73 11.44 3.07 12.32 2 13.79c-1.5 2.09-.87 5.31 1.71 6.46.95.42 1.97.59 2.97.46L12 22l5.32-1.29c.99.13 2.01-.04 2.97-.46 2.58-1.15 3.21-4.37 1.71-6.46-.74-1.03-1.73-1.73-2.73-2.33z"/>
-              </svg>
-              Streamlit
-            </a>
           </div>
         </div>
       </div>

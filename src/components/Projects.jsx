@@ -131,17 +131,18 @@ const projectsData = [
     featured: false,
     category: "Generative AI & RAG",
     tagline: "Open-Source Multi-Agent Team for Claude Code & Google Antigravity",
-    description: "Open-source (MIT) AI software-engineering team built from native sub-agents: an orchestrator that interviews the user and waits for approval, then delegates to product, architecture, planning, development, QA, review and git specialists. Each failure mode of coding agents has a specific guard.",
+    description: "Open-source (MIT) AI software-engineering team built from native sub-agents: an orchestrator that interviews the user and waits for approval, then delegates to product, architecture, planning, development, QA, review, security and platform specialists. Each failure mode of coding agents has a specific guard.",
     bullets: [
-      "9 roles with least-privilege tools (planners have no shell, the reviewer cannot edit files) and a read-only adversarial reviewer that returns APPROVED or REJECTED per milestone",
+      "12 roles (an orchestrator and 11 specialists) with least-privilege tools (planners have no shell, reviewers cannot edit files); read-only adversarial and security reviewers return APPROVED or REJECTED, the security reviewer checking both the architecture and each milestone",
       "Approval gate before any build, bounded retries (3), and a task counts as done only when the orchestrator re-runs the recorded test command and sees exit code 0",
+      "Specialists register by workflow slot (design review, task owner, milestone review), so a new role is one prompt and one registry entry with no change to the orchestrator's workflow",
       "File-based hand-off through living documents in docs/ so any agent or person can resume; installer plus CI drift check on Linux and Windows"
     ],
-    tags: ["Multi-Agent", "Claude Code", "Guardrails", "Python", "CI", "MIT License"],
+    tags: ["Multi-Agent", "Claude Code", "Guardrails", "Security Review", "Python", "CI", "MIT License"],
     metrics: [
-      { label: "Agent Roles", value: "9" },
+      { label: "Agent Roles", value: "12" },
       { label: "Retry Bound", value: "3 per task" },
-      { label: "Pytest Suite", value: "37 Tests" }
+      { label: "Pytest Suite", value: "62 Tests" }
     ],
     image: null,
     fallbackIcon: "🤖",
@@ -150,7 +151,7 @@ const projectsData = [
     status: "Open Source",
     architecture: {
       overview: "Agent definitions generated from one role file into Claude Code and Antigravity formats; an orchestrator is the only agent that talks to the user and verifies every result itself.",
-      pipeline: ["Interview + Scope Approval Gate", "Spec (product-analyst)", "Architecture + Decisions", "Task Plan (M1 to M3)", "Developer + QA per task", "Orchestrator re-runs tests", "Adversarial Review per milestone"],
+      pipeline: ["Interview + Scope Approval Gate", "Spec (product-analyst)", "Architecture + Decisions", "Security Design Review", "Task Plan (M1 to M3)", "Developer + QA per task", "Orchestrator re-runs tests", "Adversarial + Security Review per milestone"],
       dataset: "No dataset: the work product is the agent configuration, the installer and the generated agent files."
     }
   },

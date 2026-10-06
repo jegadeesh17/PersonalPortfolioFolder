@@ -1,6 +1,6 @@
 .certifications {
   padding: 96px 28px;
-  background: var(--bg-secondary);
+  background: var(--band-bg);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }

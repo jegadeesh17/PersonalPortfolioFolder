@@ -14,6 +14,14 @@
 
   --font-main: 'Inter', sans-serif;
 
+  /* Nebula glow (background only) */
+  --glow-gold: rgba(245, 166, 60, 0.30);
+  --glow-violet: rgba(118, 96, 238, 0.24);
+  --glow-magenta: rgba(226, 64, 132, 0.20);
+  --band-bg: rgba(255, 255, 255, 0.72);
+  /* Uniform dot matrix layered over the glow */
+  --dot-matrix: radial-gradient(circle, rgba(100, 116, 139, 0.23) 1px, transparent 1.2px);
+
   --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px 0 rgba(0,0,0,0.04);
   --shadow-md: 0 4px 12px -1px rgba(0,0,0,0.07), 0 2px 6px -1px rgba(0,0,0,0.04);
   --shadow-lg: 0 12px 28px -4px rgba(0,0,0,0.1), 0 6px 12px -2px rgba(0,0,0,0.05);
@@ -35,6 +43,20 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Fixed nebula glow behind all content */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    var(--dot-matrix) 0 0 / 22px 22px repeat,
+    radial-gradient(ellipse 55% 45% at 0% 0%, var(--glow-gold), transparent 70%),
+    radial-gradient(ellipse 50% 42% at 100% 6%, var(--glow-violet), transparent 70%),
+    radial-gradient(ellipse 55% 48% at 92% 100%, var(--glow-magenta), transparent 70%);
 }
 
 a {

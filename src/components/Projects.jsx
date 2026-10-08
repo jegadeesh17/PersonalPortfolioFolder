@@ -197,17 +197,17 @@ const projectsData = [
       "Integrated Grad-CAM (Gradient-weighted Class Activation Mapping) to highlight disease-triggering leaf regions",
       "Deployed FastAPI inference API (POST /predict) to GCP Cloud Run, published to Hugging Face Hub, and automated CI/CD via GitHub Actions"
     ],
-    tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "GCP Cloud Run", "Hugging Face", "GitHub Actions"],
+    tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "Hugging Face", "GitHub Actions"],
     metrics: [
       { label: "Test Accuracy", value: "98.66%" },
       { label: "Disease Classes", value: "4 Classes" },
-      { label: "Inference API", value: "GCP Cloud Run" }
+      { label: "Inference API", value: "FastAPI" }
     ],
     image: "/projects/rice-disease.png",
     fallbackIcon: "🌾",
     github: "https://github.com/jegadeesh17/AI-powered-rice-leaf-detection-system",
-    live: "https://rice-leaf-api-5obmkzpuaa-el.a.run.app/",
-    status: "Live on GCP Cloud Run",
+    live: null,
+    status: "Open Source",
     architecture: {
       overview: "Deep learning computer vision system leveraging EfficientNetB0 transfer learning for multi-class foliar pathology diagnosis, combined with Grad-CAM saliency heatmaps for agronomic explainability.",
       pipeline: ["Deterministic Image Preprocessing (224x224)", "EfficientNetB0 Feature Backbone", "Fine-Tuned Dense Classification Head", "Grad-CAM Saliency Generator", "FastAPI POST /predict Endpoint", "Automated GitHub Actions CI/CD"],

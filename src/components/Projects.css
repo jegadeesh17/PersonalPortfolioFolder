@@ -118,7 +118,7 @@
 .project-image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
 }

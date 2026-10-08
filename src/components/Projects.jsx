@@ -113,7 +113,7 @@ const projectsData = [
       { label: "Retry Bound", value: "3 per task" },
       { label: "Pytest Suite", value: "69 Tests" }
     ],
-    image: null,
+    image: "/projects/software-engineering-agents.png",
     fallbackIcon: "🤖",
     github: "https://github.com/jegadeesh17/SoftwareEngineeringAgents",
     live: null,
@@ -252,7 +252,6 @@ const categories = [
   "All Projects",
   "Featured (Resume)",
   "Generative AI & RAG",
-  "Computer Vision & DL",
   "Machine Learning & NLP",
 ];
 
@@ -281,7 +280,7 @@ const Projects = () => {
       <div className="section-header">
         <div className="section-badge">Engineering Portfolio</div>
         <h2>Production AI & ML Deployments</h2>
-        <p>End-to-end systems spanning Generative AI, RAG, Computer Vision, and Predictive MLOps.</p>
+        <p>End-to-end systems spanning agents, RAG, evaluation, and predictive machine learning.</p>
       </div>
 
       {/* Category Filter Tabs */}

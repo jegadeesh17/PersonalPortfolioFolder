@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Projects.css';
 
 const projectsData = [
-  // ─── FEATURED: RESUME PROJECTS (1-4) ───
+  // Ordered by fit for the target roles: AI agents, RAG and evals first, then ML and analytics.
   {
     id: 'toolkit-research',
     title: "Toolkit Buildability Research — Evidence-Grounded Research Agent",
@@ -94,6 +94,37 @@ const projectsData = [
     }
   },
   {
+    id: 'software-engineering-agents',
+    title: "SoftwareEngineeringAgents — Multi-Agent Engineering Team",
+    featured: false,
+    category: "Generative AI & RAG",
+    tagline: "Open-Source Multi-Agent Team for Claude Code & Google Antigravity",
+    description: "Open-source (MIT) AI software-engineering team built from native sub-agents: an orchestrator that interviews the user and waits for approval, then delegates to product, architecture, planning, development, QA, review, security and platform specialists. Each failure mode of coding agents has a specific guard, and it runs on the Claude Code or Antigravity subscription the user already has, with no API keys.",
+    bullets: [
+      "12 roles (an orchestrator and 11 specialists) with least-privilege tools (planners have no shell; reviewers have no Write or Edit tool, only Bash for running tests); read-only adversarial and security reviewers return APPROVED or REJECTED, the security reviewer checking both the architecture and each milestone",
+      "Approval gate before any build, bounded retries (3), and a task counts as done only when the orchestrator re-runs the recorded test command and sees exit code 0; the user tests and accepts every milestone before it counts as done",
+      "Specialists register by workflow slot (design review, task owner, milestone review), so a new role is one prompt and one registry entry with no change to the orchestrator's workflow",
+      "Existing-project mode: a codebase analyst maps the stack, conventions and a baseline test run first, work happens on its own branch, and reviewers check for regressions against the starting commit",
+      "Built-in UI craft standard with a refuse list of AI-looking patterns, plus screenshot review at desktop and mobile widths; file-based hand-off through living documents in docs/ so any agent or person can resume; installer plus CI drift check on Linux and Windows"
+    ],
+    tags: ["Multi-Agent", "Claude Code", "Guardrails", "Security Review", "Python", "CI", "MIT License"],
+    metrics: [
+      { label: "Agent Roles", value: "12" },
+      { label: "Retry Bound", value: "3 per task" },
+      { label: "Pytest Suite", value: "69 Tests" }
+    ],
+    image: null,
+    fallbackIcon: "🤖",
+    github: "https://github.com/jegadeesh17/SoftwareEngineeringAgents",
+    live: null,
+    status: "Open Source",
+    architecture: {
+      overview: "Agent definitions generated from one role file into Claude Code and Antigravity formats; an orchestrator is the only agent that talks to the user and verifies every result itself.",
+      pipeline: ["Interview + Scope Approval Gate", "Spec (product-analyst)", "Architecture + Decisions", "Security Design Review", "Task Plan (M1 to M3)", "Developer + QA per task", "Orchestrator re-runs tests", "Adversarial + Security Review per milestone"],
+      dataset: "No dataset: the work product is the agent configuration, the installer and the generated agent files."
+    }
+  },
+  {
     id: 'customer-support-analytics',
     title: "Autonomous Customer Support Analytics & Agentic Triage Engine",
     featured: true,
@@ -122,37 +153,6 @@ const projectsData = [
       overview: "Autonomous customer support platform combining multi-task machine learning inference with an agentic escalation tier and deterministic JSON contracts.",
       pipeline: ["Ticket Ingestion", "Text Preprocessing & TF-IDF", "Multi-Task ML Inference", "Agentic Escalation Router", "Pydantic Schema Validation", "FastAPI REST API"],
       dataset: "Customer support ticket interactions annotated with priority, sentiment, resolution time, and satisfaction."
-    }
-  },
-  // ─── MORE PROJECTS ───
-  {
-    id: 'software-engineering-agents',
-    title: "SoftwareEngineeringAgents — Multi-Agent Engineering Team",
-    featured: false,
-    category: "Generative AI & RAG",
-    tagline: "Open-Source Multi-Agent Team for Claude Code & Google Antigravity",
-    description: "Open-source (MIT) AI software-engineering team built from native sub-agents: an orchestrator that interviews the user and waits for approval, then delegates to product, architecture, planning, development, QA, review, security and platform specialists. Each failure mode of coding agents has a specific guard.",
-    bullets: [
-      "12 roles (an orchestrator and 11 specialists) with least-privilege tools (planners have no shell; reviewers have no Write or Edit tool, only Bash for running tests); read-only adversarial and security reviewers return APPROVED or REJECTED, the security reviewer checking both the architecture and each milestone",
-      "Approval gate before any build, bounded retries (3), and a task counts as done only when the orchestrator re-runs the recorded test command and sees exit code 0",
-      "Specialists register by workflow slot (design review, task owner, milestone review), so a new role is one prompt and one registry entry with no change to the orchestrator's workflow",
-      "File-based hand-off through living documents in docs/ so any agent or person can resume; installer plus CI drift check on Linux and Windows"
-    ],
-    tags: ["Multi-Agent", "Claude Code", "Guardrails", "Security Review", "Python", "CI", "MIT License"],
-    metrics: [
-      { label: "Agent Roles", value: "12" },
-      { label: "Retry Bound", value: "3 per task" },
-      { label: "Pytest Suite", value: "69 Tests" }
-    ],
-    image: null,
-    fallbackIcon: "🤖",
-    github: "https://github.com/jegadeesh17/SoftwareEngineeringAgents",
-    live: null,
-    status: "Open Source",
-    architecture: {
-      overview: "Agent definitions generated from one role file into Claude Code and Antigravity formats; an orchestrator is the only agent that talks to the user and verifies every result itself.",
-      pipeline: ["Interview + Scope Approval Gate", "Spec (product-analyst)", "Architecture + Decisions", "Security Design Review", "Task Plan (M1 to M3)", "Developer + QA per task", "Orchestrator re-runs tests", "Adversarial + Security Review per milestone"],
-      dataset: "No dataset: the work product is the agent configuration, the installer and the generated agent files."
     }
   },
   {
@@ -186,61 +186,34 @@ const projectsData = [
     }
   },
   {
-    id: 'rice-leaf-disease',
-    title: "AI-Powered Rice Leaf Disease Detection System",
-    featured: false,
-    category: "Computer Vision & DL",
-    tagline: "4-Class CNN Classifier · Precision Agriculture & Explainable AI",
-    description: "Built a 4-class CNN image classifier using EfficientNetB0 transfer learning (Keras 3 + PyTorch) on the Mendeley rice leaf dataset, achieving 98.66% test accuracy across Bacterial Blight, Rice Blast, Brown Spot, and Tungro classes. Integrated Grad-CAM explainability to highlight disease-triggering leaf regions.",
-    bullets: [
-      "Built 4-class CNN image classifier using EfficientNetB0 transfer learning achieving 98.66% test accuracy",
-      "Integrated Grad-CAM (Gradient-weighted Class Activation Mapping) to highlight disease-triggering leaf regions",
-      "Built FastAPI inference API (POST /predict), containerised for GCP Cloud Run, published model to Hugging Face Hub, and automated CI/CD via GitHub Actions"
-    ],
-    tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "Hugging Face", "GitHub Actions"],
-    metrics: [
-      { label: "Test Accuracy", value: "98.66%" },
-      { label: "Disease Classes", value: "4 Classes" },
-      { label: "Inference API", value: "FastAPI" }
-    ],
-    image: "/projects/rice-disease.png",
-    fallbackIcon: "🌾",
-    github: "https://github.com/jegadeesh17/AI-powered-rice-leaf-detection-system",
-    live: null,
-    status: "Open Source",
-    architecture: {
-      overview: "Deep learning computer vision system leveraging EfficientNetB0 transfer learning for multi-class foliar pathology diagnosis, combined with Grad-CAM saliency heatmaps for agronomic explainability.",
-      pipeline: ["Deterministic Image Preprocessing (224x224)", "EfficientNetB0 Feature Backbone", "Fine-Tuned Dense Classification Head", "Grad-CAM Saliency Generator", "FastAPI POST /predict Endpoint", "Automated GitHub Actions CI/CD"],
-      dataset: "Mendeley Rice Leaf Disease Image Dataset (Bacterial Blight, Rice Blast, Brown Spot, Tungro)."
-    }
-  },
-  {
-    id: 'clinical-trial-classifier',
-    title: "Clinical Trial Disease Category Classification",
+    id: 'smartphone-addiction',
+    title: "Smartphone Addiction Risk Prediction (Kaggle S6E8)",
     featured: false,
     category: "Machine Learning & NLP",
-    tagline: "Healthcare NLP · 8-Class Therapeutic Category Classifier with Explainability",
-    description: "High-precision NLP classification pipeline categorizing 60,000+ medical clinical trial protocol summaries across 8 major therapeutic categories (Covid-19, Breast Cancer, Type 2 Diabetes, etc.) using TF-IDF (15,000 features, uni+bi grams) and class-balanced Logistic Regression.",
+    tagline: "Competitive Machine Learning · Behavioral Analytics & Ensembles",
+    description: "End-to-end competitive machine learning solution for Kaggle Playground Series S6E8, predicting smartphone addiction probability (ROC AUC). Four models are combined in a 74-feature SLSQP logit ensemble with stacking, reaching 0.964120+ out-of-fold ROC AUC under 5-fold stratified cross-validation, and the solution is served as a FastAPI dashboard on GCP Cloud Run.",
     bullets: [
-      "Processed 60,000+ clinical trial protocol texts with regex cleaning, NLTK stop-word filtering and WordNet lemmatization",
-      "Capped TF-IDF at 15,000 unigram/bigram features and achieved ~95% classification accuracy",
-      "Developed interactive Streamlit dashboard displaying top predictive term coefficients per disease"
+      "74-column feature pipeline: missingness (_isna) flags for 12 raw variables, domain time-budget and saturation ratios, behavioral volatility features, cohort GroupBy z-scores on (Age, Gender) and (Stress Level, Academic Impact), and cross-product interaction terms",
+      "Trained LightGBM, XGBoost, CatBoost and a PyTorch Tabular ResNet with 5-fold stratified CV, then combined them with an SLSQP logit ensemble and stacking for 0.964120+ out-of-fold ROC AUC",
+      "FastAPI dashboard with four views (Individual Diagnostic, Population Cohort Analytics, What-If Simulation, Batch Diagnostics with CSV upload) in a multi-stage Docker image on GCP Cloud Run; GitHub Actions runs the fast test suite and deploys on pushes to main. The deployed image bundles a single LightGBM fold model, not the ensemble"
     ],
-    tags: ["NLP", "scikit-learn", "TF-IDF", "Explainable AI", "Streamlit", "NLTK"],
+    tags: ["Kaggle ML", "LightGBM", "XGBoost", "CatBoost", "PyTorch", "FastAPI", "Docker", "GCP Cloud Run", "GitHub Actions"],
     metrics: [
-      { label: "Accuracy", value: "~95%" },
-      { label: "Corpus Size", value: "60K+ Protocols" },
-      { label: "Categories", value: "8 Disease Classes" }
+      { label: "Validation", value: "5-Fold Stratified" },
+      { label: "Best OOF ROC AUC", value: "0.964120+" },
+      { label: "Training Rows", value: "691K" },
+      { label: "Pytest Suite", value: "328 Collected" }
     ],
-    image: "/projects/clinical-trial.png",
-    fallbackIcon: "🏥",
-    github: "https://github.com/jegadeesh17/Clinical-Trial-Disease-Classification",
-    live: null,
-    status: "Complete Pipeline",
+    image: "/projects/smartphone-addiction.png",
+    fallbackIcon: "📱",
+    github: "https://github.com/jegadeesh17/Smartphone-Addiction-Prediction",
+    live: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/app",
+    docs: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
-      overview: "Biomedical text classification system automating clinical study categorization with interpretable feature importances.",
-      pipeline: ["Protocol Text Preprocessing", "N-Gram TF-IDF Vectorization", "Class-Balanced Logistic Regression", "Feature Importance Extraction", "Streamlit Exploration Dashboard"],
-      dataset: "60,000+ ClinicalTrials.gov protocol summaries labeled across 8 therapeutic disease categories."
+      overview: "High-performance tabular modeling pipeline optimized for competitive classification accuracy and discrimination ranking.",
+      pipeline: ["74-Column Feature Pipeline", "5-Fold Stratified Training (4 Models)", "SLSQP Logit Ensemble + Stacking", "Threshold Tuning", "FastAPI Dashboard (4 Views)", "Multi-Stage Docker on GCP Cloud Run"],
+      dataset: "Kaggle Playground Series S6E8 Smartphone Addiction Dataset."
     }
   },
   {
@@ -270,66 +243,6 @@ const projectsData = [
       overview: "Predictive marketing performance engine combining data warehouse ETL, advanced tabular feature engineering, and regression inference.",
       pipeline: ["Multi-Brand Data Ingestion", "PostgreSQL Staging", "Cyclical & Ratio Feature Engineering", "XGBoost Regressor and Classifier", "Streamlit Forecasting Dashboard", "FastAPI Prediction Service"],
       dataset: "Multi-channel advertising campaign data across e-commerce beauty brands with impressions, clicks, spend, and conversion tracking."
-    }
-  },
-  {
-    id: 'deepfake-detection',
-    title: "Deepfake Face Detection & Verification System",
-    featured: false,
-    category: "Computer Vision & DL",
-    tagline: "Binary CNN Image Classifier · AI-Generated Face Detection & Grad-CAM XAI",
-    description: "Binary image classification and explainability system distinguishing real human faces from AI-generated deepfakes using EfficientNet-B0 and ResNet transfer learning, with integrated Grad-CAM visual heatmaps for trustworthy forensic verification.",
-    bullets: [
-      "Evaluated EfficientNet-B0 and ResNet-50 architectures on a labelled real-vs-fake face dataset",
-      "Integrated Grad-CAM heatmaps showing which facial regions drive each prediction",
-      "Built Streamlit inspection dashboard for single-image forensic analysis"
-    ],
-    tags: ["Computer Vision", "Deep Learning", "Grad-CAM", "PyTorch", "Streamlit", "EfficientNet"],
-    metrics: [
-      { label: "Pytest Suite", value: "3 Tests" },
-      { label: "Explainability", value: "Grad-CAM Saliency" },
-      { label: "Inference", value: "CPU / GPU Ready" }
-    ],
-    image: "/projects/deepfake-detection.png",
-    fallbackIcon: "👁️",
-    github: "https://github.com/jegadeesh17/DeepfakeDetectionSystem",
-    live: null,
-    status: "Model + Demo UI",
-    architecture: {
-      overview: "Deepfake forensic analysis platform using transfer-learned CNNs to detect synthetic generative artifacts with visual explainability.",
-      pipeline: ["Face Detection & Cropping", "Image Normalization", "CNN Feature Extraction", "Binary Sigmoid Classifier", "Grad-CAM Saliency Map Overlay", "Streamlit Forensic UI"],
-      dataset: "Labelled real/fake face images listed in a metadata CSV (image id, label, gender, age group); source dataset not recorded in the repo."
-    }
-  },
-  {
-    id: 'smartphone-addiction',
-    title: "Smartphone Addiction Risk Prediction (Kaggle S6E8)",
-    featured: false,
-    category: "Machine Learning & NLP",
-    tagline: "Competitive Machine Learning · Behavioral Analytics & Ensembles",
-    description: "End-to-end competitive machine learning solution for Kaggle Playground Series S6E8, predicting smartphone addiction probability (ROC AUC). Four models are combined in a 74-feature SLSQP logit ensemble with stacking, reaching 0.964120+ out-of-fold ROC AUC under 5-fold stratified cross-validation, and the solution is served as a FastAPI dashboard on GCP Cloud Run.",
-    bullets: [
-      "74-column feature pipeline: missingness (_isna) flags for 12 raw variables, domain time-budget and saturation ratios, behavioral volatility features, cohort GroupBy z-scores on (Age, Gender) and (Stress Level, Academic Impact), and cross-product interaction terms",
-      "Trained LightGBM, XGBoost, CatBoost and a PyTorch Tabular ResNet with 5-fold stratified CV, then combined them with an SLSQP logit ensemble and stacking for 0.964120+ out-of-fold ROC AUC",
-      "FastAPI dashboard with four views (Individual Diagnostic, Population Cohort Analytics, What-If Simulation, Batch Diagnostics with CSV upload) in a multi-stage Docker image on GCP Cloud Run; GitHub Actions runs the fast test suite and deploys on pushes to main. The deployed image bundles a single LightGBM fold model, not the ensemble"
-    ],
-    tags: ["Kaggle ML", "LightGBM", "XGBoost", "CatBoost", "PyTorch", "FastAPI", "Docker", "GCP Cloud Run", "GitHub Actions"],
-    metrics: [
-      { label: "Validation", value: "5-Fold Stratified" },
-      { label: "Best OOF ROC AUC", value: "0.964120+" },
-      { label: "Training Rows", value: "691K" },
-      { label: "Pytest Suite", value: "328 Collected" }
-    ],
-    image: "/projects/smartphone-addiction.png",
-    fallbackIcon: "📱",
-    github: "https://github.com/jegadeesh17/Smartphone-Addiction-Prediction",
-    live: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/app",
-    docs: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/docs",
-    status: "Live on GCP Cloud Run",
-    architecture: {
-      overview: "High-performance tabular modeling pipeline optimized for competitive classification accuracy and discrimination ranking.",
-      pipeline: ["74-Column Feature Pipeline", "5-Fold Stratified Training (4 Models)", "SLSQP Logit Ensemble + Stacking", "Threshold Tuning", "FastAPI Dashboard (4 Views)", "Multi-Stage Docker on GCP Cloud Run"],
-      dataset: "Kaggle Playground Series S6E8 Smartphone Addiction Dataset."
     }
   }
 ];

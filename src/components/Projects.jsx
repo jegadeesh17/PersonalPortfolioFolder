@@ -12,14 +12,14 @@ const projectsData = [
     description: "Built a tool-using agent that assesses how buildable 100 SaaS apps are as AI-agent toolkits, recording how an agent would authenticate, what API exists and what blocks it, with a verbatim quote behind every answer. A verification pass (second model from a different family, a judge on disputed fields, capped re-research) was scored against blind reference labels for 20 apps.",
     bullets: [
       "Single chokepoints for LLM and tool calls (allow-listed Composio search/fetch), schema-bound extraction with up to 2 repair calls, deterministic verbatim-quote grounding, and a USD budget cap with a per-call JSONL run log",
-      "Verification pass on a 20-app, 140-field reference set: field accuracy 0.743 to 0.779, verdict accuracy 14/20 to 17/20, quote grounding 91.5% to 99.4%; the auth-method field regressed (0.55 to 0.40) and is reported as such",
-      "Full run: 567 LLM calls and 1,220 tool calls for $4.38; reference labels came from an independent agent and were hand spot-checked 10/10; 258 automated pytest tests"
+      "Verification pass on a 20-app, 140-field reference set: field accuracy 0.743 to 0.779, verdict accuracy 14/20 to 17/20; quote grounding across all 100 apps 91.5% to 99.4%; the auth-method field regressed (0.55 to 0.40) and is reported as such",
+      "All runs to date (pilot, both passes, judge, re-research): 567 LLM calls and 1,220 tool calls for $4.38; reference labels came from an independent agent and were hand spot-checked 10/10; 258 automated pytest tests"
     ],
     tags: ["Tool-Using Agent", "LLM Evaluation", "Quote Grounding", "Verification Loop", "Pydantic", "OpenRouter", "Composio"],
     metrics: [
       { label: "Verdict Accuracy (pass 1 to 2)", value: "14/20 → 17/20" },
       { label: "Quote Grounding", value: "91.5% → 99.4%" },
-      { label: "Full Run Cost", value: "$4.38" },
+      { label: "Total Spend (all runs)", value: "$4.38" },
       { label: "Pytest Suite", value: "258 Collected" }
     ],
     image: "/projects/toolkit-research.png",
@@ -43,13 +43,13 @@ const projectsData = [
     bullets: [
       "Chunked 12,075 segments with paragraph-aware splitting (800-char / 100-char overlap) and fused dense and BM25 rankings with RRF (k = 60)",
       "Built retrieval and RAGAS evaluation harnesses (10 labelled questions, separate judge model): MRR 0.678 to 0.703, faithfulness 0.744 to 0.788, response relevancy 0.509 to 0.541, context precision 0.470 to 0.287 (dense to hybrid)",
-      "Exposed a FastAPI service with a model fallback chain, low-confidence gating and page-level citations; 86 automated pytest tests with CI"
+      "Exposed a FastAPI service with a model fallback chain, a low-confidence flag and page-level citations; 82 automated pytest tests (4 live-network integration tests excluded) with CI"
     ],
     tags: ["Hybrid RAG", "BM25", "ChromaDB", "RAGAS", "FastAPI", "Docker", "PyMuPDF"],
     metrics: [
       { label: "Retrieval MRR (hybrid)", value: "0.703" },
       { label: "RAGAS Faithfulness (n=10)", value: "0.788" },
-      { label: "Pytest Suite", value: "86 Collected" }
+      { label: "Pytest Suite", value: "82 Passed" }
     ],
     image: "/projects/financial-copilot.png",
     fallbackIcon: "📊",
@@ -68,14 +68,14 @@ const projectsData = [
     title: "GoalOS — Personal AI Executive Life Operating System",
     featured: true,
     category: "Generative AI & RAG",
-    tagline: "Local-First Coaching App · Rule-Routed Tool Registry, Hybrid Memory & Fallbacks",
-    description: "Built a local-first AI coaching app (React 18, FastAPI, SQLite FTS5, ChromaDB) with rule-based intent routing to 8 schema-validated tools across 4 domain namespaces, prompts grounded in retrieved user data, a persisted session blackboard and a 5-factor memory retrieval engine. Falls back to a deterministic rule engine, with a recorded reason, when offline, rate-limited or without user consent.",
+    tagline: "Local-First Coaching App · Rule-Based Coordinator, Hybrid Memory & Fallbacks",
+    description: "Built a local-first AI coaching app (React 18, FastAPI, SQLite FTS5, ChromaDB) with rule-based intent classification that pre-fetches matching data, plus a registry of 8 tools across 4 domain namespaces exercised by a direct-invocation benchmark, prompts grounded in retrieved user data, a persisted session blackboard and a 5-factor memory retrieval engine. Falls back to a deterministic rule engine, with a recorded reason, when offline, rate-limited or without user consent.",
     bullets: [
       "5-factor memory retrieval: SQLite FTS5 lexical search, ChromaDB cosine similarity, recency half-life decay, importance weighting and access frequency",
-      "Coordinator classifies intent by rules, routes to 8 tools in 4 namespaces, and rejects unregistered tools; a 9/9 direct-invocation benchmark covers every tool plus the rejection case (it does not measure LLM tool selection)",
+      "Coordinator classifies intent by keyword rules and pre-fetches matching data for one model call; a 9/9 direct-invocation benchmark covers the 8 registered tools plus a rejected unregistered-tool case (it does not measure LLM tool selection)",
       "Per-call telemetry, consent gating and CI (ruff, mypy, pytest, Docker build); 280 automated pytest tests"
     ],
-    tags: ["Agent Runtime", "Tool Calling", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
+    tags: ["Agent Runtime", "Tool Registry", "SQLite FTS5", "FastAPI", "React 18", "ChromaDB", "Docker"],
     metrics: [
       { label: "Tool Benchmark (direct invocation)", value: "9/9" },
       { label: "Memory Retrieval", value: "5-Factor Composite" },
@@ -88,7 +88,7 @@ const projectsData = [
     docs: "https://goalos-api-242711953247.asia-south1.run.app/docs",
     status: "Live on GCP Cloud Run",
     architecture: {
-      overview: "Local-first agent runtime integrating cognitive long-term memory, SQLite FTS5 lexical indexing, and multi-turn tool-calling LLM workflows.",
+      overview: "Local-first agent runtime integrating cognitive long-term memory, SQLite FTS5 lexical indexing, and single-call LLM coaching over pre-fetched context.",
       pipeline: ["React 18 + Vite UI", "FastAPI Service Gateway", "5-Factor Cognitive Memory Engine", "SQLite FTS5 + ChromaDB", "Rule-Based Coordinator + Tool Registry", "Telemetry & Analytics"],
       dataset: "Structured multi-horizon personal goal hierarchy and journal vector database."
     }
@@ -99,18 +99,18 @@ const projectsData = [
     featured: true,
     category: "Machine Learning & NLP",
     tagline: "Multi-Task Classification & Agentic Escalation Triage Engine",
-    description: "Built a two-tier triage system over ~200K support tickets: Tier 1 scikit-learn models (82.1% priority accuracy, R² = 0.7185 resolution-time regression) handled 69.5% of a 1,000-ticket benchmark without escalation. Tier 2 LLM escalation activates only for low confidence (< 0.67), predicted resolution above 185 h, or a high-risk Enterprise segment, using a Groq, OpenRouter, OpenAI provider chain with a deterministic heuristic fallback.",
+    description: "Built a two-tier triage system over ~200K support tickets: Tier 1 scikit-learn models (82.1% priority accuracy, R² = 0.7343 resolution-time regression) handled 69.7% of a 1,000-ticket benchmark without escalation. Tier 2 LLM escalation activates only for low confidence (< 0.67), predicted resolution above 185 h, or a high-risk Enterprise segment, using a Groq, OpenRouter, OpenAI provider chain with a deterministic heuristic fallback.",
     bullets: [
-      "Multi-task ML pipelines predicting priority (82.1% accuracy) and resolution time (R² = 0.7185); local median inference about 24 ms for classification and 50 ms for regression",
-      "Two-tier triage with Pydantic-validated JSON from the LLM tier, provider fallback chain and a heuristic fallback on any error; Tier 1 handled 69.5% of 1,000 benchmark tickets",
-      "FastAPI service on Cloud Run with POST /predict_* and POST /triage_agent; 36 automated pytest tests with CI"
+      "Multi-task ML pipelines predicting priority (82.1% accuracy) and resolution time (R² = 0.7343); local median inference about 18 ms for classification and 17 ms for regression",
+      "Two-tier triage with Pydantic-validated JSON from the LLM tier, provider fallback chain and a heuristic fallback on any error; Tier 1 handled 69.7% of 1,000 benchmark tickets",
+      "FastAPI service on Cloud Run with POST /predict_* and POST /triage_agent; 61 automated pytest tests with CI"
     ],
     tags: ["Agentic Triage", "FastAPI", "scikit-learn", "Pydantic", "Docker", "pytest", "Multi-Task ML"],
     metrics: [
       { label: "Priority Accuracy", value: "82.1%" },
-      { label: "Resolution Reg.", value: "R² = 0.7185" },
-      { label: "Tier 1 Handled (1,000 tickets)", value: "69.5%" },
-      { label: "Pytest Suite", value: "36 Collected" }
+      { label: "Resolution Reg.", value: "R² = 0.7343" },
+      { label: "Tier 1 Handled (1,000 tickets)", value: "69.7%" },
+      { label: "Pytest Suite", value: "61 Collected" }
     ],
     image: "/projects/support-analytics.png",
     fallbackIcon: "🎧",
@@ -133,7 +133,7 @@ const projectsData = [
     tagline: "Open-Source Multi-Agent Team for Claude Code & Google Antigravity",
     description: "Open-source (MIT) AI software-engineering team built from native sub-agents: an orchestrator that interviews the user and waits for approval, then delegates to product, architecture, planning, development, QA, review, security and platform specialists. Each failure mode of coding agents has a specific guard.",
     bullets: [
-      "12 roles (an orchestrator and 11 specialists) with least-privilege tools (planners have no shell, reviewers cannot edit files); read-only adversarial and security reviewers return APPROVED or REJECTED, the security reviewer checking both the architecture and each milestone",
+      "12 roles (an orchestrator and 11 specialists) with least-privilege tools (planners have no shell; reviewers have no Write or Edit tool, only Bash for running tests); read-only adversarial and security reviewers return APPROVED or REJECTED, the security reviewer checking both the architecture and each milestone",
       "Approval gate before any build, bounded retries (3), and a task counts as done only when the orchestrator re-runs the recorded test command and sees exit code 0",
       "Specialists register by workflow slot (design review, task owner, milestone review), so a new role is one prompt and one registry entry with no change to the orchestrator's workflow",
       "File-based hand-off through living documents in docs/ so any agent or person can resume; installer plus CI drift check on Linux and Windows"
@@ -142,7 +142,7 @@ const projectsData = [
     metrics: [
       { label: "Agent Roles", value: "12" },
       { label: "Retry Bound", value: "3 per task" },
-      { label: "Pytest Suite", value: "62 Tests" }
+      { label: "Pytest Suite", value: "69 Tests" }
     ],
     image: null,
     fallbackIcon: "🤖",
@@ -182,7 +182,7 @@ const projectsData = [
     architecture: {
       overview: "Autonomous multi-agent evaluation pipeline with semantic PYQ retrieval, rubric-grounded scoring, and localized Indic mentor feedback.",
       pipeline: ["PYQ Retrieval (ChromaDB)", "Student Answer Submission", "Evaluator Agent with Schema Lock", "Indic Feedback Agent (EN/HI/TA)", "FastAPI REST API", "SQLite Attempt Store"],
-      dataset: "Seed set of UPSC-style previous-year questions with model answers and rubrics."
+      dataset: "60 seeded questions (40 real PYQs, 20 synthetic) with model answers and rubrics."
     }
   },
   {
@@ -222,8 +222,8 @@ const projectsData = [
     tagline: "Healthcare NLP · 8-Class Therapeutic Category Classifier with Explainability",
     description: "High-precision NLP classification pipeline categorizing 60,000+ medical clinical trial protocol summaries across 8 major therapeutic categories (Covid-19, Breast Cancer, Type 2 Diabetes, etc.) using TF-IDF (15,000 features, uni+bi grams) and class-balanced Logistic Regression.",
     bullets: [
-      "Processed 60,000+ clinical trial protocol texts with medical NLTK tokenization and stop-word filtering",
-      "Extracted 15,000 unigram/bigram TF-IDF features and achieved ~95% classification accuracy",
+      "Processed 60,000+ clinical trial protocol texts with regex cleaning, NLTK stop-word filtering and WordNet lemmatization",
+      "Capped TF-IDF at 15,000 unigram/bigram features and achieved ~95% classification accuracy",
       "Developed interactive Streamlit dashboard displaying top predictive term coefficients per disease"
     ],
     tags: ["NLP", "scikit-learn", "TF-IDF", "Explainable AI", "Streamlit", "NLTK"],
@@ -249,7 +249,7 @@ const projectsData = [
     featured: false,
     category: "Machine Learning & NLP",
     tagline: "Predictive Marketing Analytics · XGBoost Revenue & Profitability Engine",
-    description: "End-to-end machine learning platform analyzing multi-brand digital marketing campaign streams (Nykaa, Purplle, Tira). Engineered cyclical time encodings, multi-channel CTR/CPL ratios, and deployed XGBoost models achieving R² = 0.72 revenue forecasting.",
+    description: "End-to-end machine learning platform analyzing multi-brand digital marketing campaign streams (Nykaa, Purplle, Tira). Engineered cyclical time encodings, multi-channel CTR/CPL ratios, and served XGBoost models achieving R² = 0.72 revenue forecasting.",
     bullets: [
       "Engineered feature pipelines with cyclical date transforms and brand performance ratios",
       "Trained an XGBoost revenue regressor (R² = 0.72 on an 80/20 holdout)",
@@ -268,7 +268,7 @@ const projectsData = [
     status: "Complete Pipeline",
     architecture: {
       overview: "Predictive marketing performance engine combining data warehouse ETL, advanced tabular feature engineering, and regression inference.",
-      pipeline: ["Multi-Brand Data Ingestion", "PostgreSQL Staging", "Cyclical & Ratio Feature Engineering", "XGBoost Model Ensembles", "Streamlit ROI Simulator", "FastAPI Prediction Service"],
+      pipeline: ["Multi-Brand Data Ingestion", "PostgreSQL Staging", "Cyclical & Ratio Feature Engineering", "XGBoost Regressor and Classifier", "Streamlit Forecasting Dashboard", "FastAPI Prediction Service"],
       dataset: "Multi-channel advertising campaign data across e-commerce beauty brands with impressions, clicks, spend, and conversion tracking."
     }
   },
@@ -280,13 +280,13 @@ const projectsData = [
     tagline: "Binary CNN Image Classifier · AI-Generated Face Detection & Grad-CAM XAI",
     description: "Binary image classification and explainability system distinguishing real human faces from AI-generated deepfakes using EfficientNet-B0 and ResNet transfer learning, with integrated Grad-CAM visual heatmaps for trustworthy forensic verification.",
     bullets: [
-      "Evaluated EfficientNet-B0 and ResNet-50 architectures on high-resolution facial datasets",
-      "Integrated Grad-CAM heatmaps highlighting artifact boundaries around eyes, hair, and facial textures",
-      "Built Streamlit inspection dashboard for single-image and batch media forensic analysis"
+      "Evaluated EfficientNet-B0 and ResNet-50 architectures on a labelled real-vs-fake face dataset",
+      "Integrated Grad-CAM heatmaps showing which facial regions drive each prediction",
+      "Built Streamlit inspection dashboard for single-image forensic analysis"
     ],
     tags: ["Computer Vision", "Deep Learning", "Grad-CAM", "PyTorch", "Streamlit", "EfficientNet"],
     metrics: [
-      { label: "Pytest Suite", value: "3 Passed" },
+      { label: "Pytest Suite", value: "3 Tests" },
       { label: "Explainability", value: "Grad-CAM Saliency" },
       { label: "Inference", value: "CPU / GPU Ready" }
     ],
@@ -298,7 +298,7 @@ const projectsData = [
     architecture: {
       overview: "Deepfake forensic analysis platform using transfer-learned CNNs to detect synthetic generative artifacts with visual explainability.",
       pipeline: ["Face Detection & Cropping", "Image Normalization", "CNN Feature Extraction", "Binary Sigmoid Classifier", "Grad-CAM Saliency Map Overlay", "Streamlit Forensic UI"],
-      dataset: "Benchmark dataset of paired authentic and GAN/diffusion-generated human facial portraits."
+      dataset: "Labelled real/fake face images listed in a metadata CSV (image id, label, gender, age group); source dataset not recorded in the repo."
     }
   },
   {
@@ -309,9 +309,9 @@ const projectsData = [
     tagline: "Competitive Machine Learning · Behavioral Analytics & Ensembles",
     description: "End-to-end competitive machine learning solution for Kaggle Playground Series S6E8, predicting smartphone addiction probability (ROC AUC). Four models are combined in a 74-feature SLSQP logit ensemble with stacking, reaching 0.964120+ out-of-fold ROC AUC under 5-fold stratified cross-validation, and the solution is served as a FastAPI dashboard on GCP Cloud Run.",
     bullets: [
-      "74-column feature pipeline: is_missing flags for 12 raw variables, domain time-budget and saturation ratios, behavioral volatility features, cohort GroupBy z-scores on (Age, Gender) and (Stress Level, Academic Impact), and cross-product interaction terms",
+      "74-column feature pipeline: missingness (_isna) flags for 12 raw variables, domain time-budget and saturation ratios, behavioral volatility features, cohort GroupBy z-scores on (Age, Gender) and (Stress Level, Academic Impact), and cross-product interaction terms",
       "Trained LightGBM, XGBoost, CatBoost and a PyTorch Tabular ResNet with 5-fold stratified CV, then combined them with an SLSQP logit ensemble and stacking for 0.964120+ out-of-fold ROC AUC",
-      "FastAPI dashboard with four views (Individual Diagnostic, Population Analytics, What-If Simulator, Batch Diagnostics with CSV upload) in a multi-stage Docker image on GCP Cloud Run; GitHub Actions runs the fast test suite and deploys on pushes to main. The deployed image bundles a single LightGBM fold model, not the ensemble"
+      "FastAPI dashboard with four views (Individual Diagnostic, Population Cohort Analytics, What-If Simulation, Batch Diagnostics with CSV upload) in a multi-stage Docker image on GCP Cloud Run; GitHub Actions runs the fast test suite and deploys on pushes to main. The deployed image bundles a single LightGBM fold model, not the ensemble"
     ],
     tags: ["Kaggle ML", "LightGBM", "XGBoost", "CatBoost", "PyTorch", "FastAPI", "Docker", "GCP Cloud Run", "GitHub Actions"],
     metrics: [

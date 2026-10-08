@@ -195,7 +195,7 @@ const projectsData = [
     bullets: [
       "Built 4-class CNN image classifier using EfficientNetB0 transfer learning achieving 98.66% test accuracy",
       "Integrated Grad-CAM (Gradient-weighted Class Activation Mapping) to highlight disease-triggering leaf regions",
-      "Deployed FastAPI inference API (POST /predict) to GCP Cloud Run, published to Hugging Face Hub, and automated CI/CD via GitHub Actions"
+      "Built FastAPI inference API (POST /predict), containerised for GCP Cloud Run, published model to Hugging Face Hub, and automated CI/CD via GitHub Actions"
     ],
     tags: ["Computer Vision", "EfficientNetB0", "PyTorch", "Grad-CAM", "FastAPI", "Hugging Face", "GitHub Actions"],
     metrics: [
@@ -307,26 +307,28 @@ const projectsData = [
     featured: false,
     category: "Machine Learning & NLP",
     tagline: "Competitive Machine Learning · Behavioral Analytics & Ensembles",
-    description: "End-to-end competitive machine learning solution for Kaggle Playground Series (S6E8) predicting smartphone addiction probabilities from user behavioral patterns, screen time allocations, and application usage demographics.",
+    description: "End-to-end competitive machine learning solution for Kaggle Playground Series S6E8, predicting smartphone addiction probability (ROC AUC). Four models are combined in a 74-feature SLSQP logit ensemble with stacking, reaching 0.964120+ out-of-fold ROC AUC under 5-fold stratified cross-validation, and the solution is served as a FastAPI dashboard on GCP Cloud Run.",
     bullets: [
-      "Engineered behavioral ratio features (social vs productivity time, night usage intensity)",
-      "Trained optimized LightGBM and CatBoost gradient boosted trees with 5-fold stratified cross-validation",
-      "Optimized probability calibration for maximum ROC-AUC and holdout classification accuracy"
+      "74-column feature pipeline: is_missing flags for 12 raw variables, domain time-budget and saturation ratios, behavioral volatility features, cohort GroupBy z-scores on (Age, Gender) and (Stress Level, Academic Impact), and cross-product interaction terms",
+      "Trained LightGBM, XGBoost, CatBoost and a PyTorch Tabular ResNet with 5-fold stratified CV, then combined them with an SLSQP logit ensemble and stacking for 0.964120+ out-of-fold ROC AUC",
+      "FastAPI dashboard with four views (Individual Diagnostic, Population Analytics, What-If Simulator, Batch Diagnostics with CSV upload) in a multi-stage Docker image on GCP Cloud Run; GitHub Actions runs the fast test suite and deploys on pushes to main. The deployed image bundles a single LightGBM fold model, not the ensemble"
     ],
-    tags: ["Kaggle ML", "LightGBM", "CatBoost", "Hyperparameter Tuning", "scikit-learn", "Optuna"],
+    tags: ["Kaggle ML", "LightGBM", "XGBoost", "CatBoost", "PyTorch", "FastAPI", "Docker", "GCP Cloud Run", "GitHub Actions"],
     metrics: [
       { label: "Validation", value: "5-Fold Stratified" },
-      { label: "Optimization", value: "Optuna Tuned" },
-      { label: "Training Rows", value: "691K" }
+      { label: "Best OOF ROC AUC", value: "0.964120+" },
+      { label: "Training Rows", value: "691K" },
+      { label: "Pytest Suite", value: "328 Collected" }
     ],
     image: "/projects/smartphone-addiction.png",
     fallbackIcon: "📱",
     github: "https://github.com/jegadeesh17/Smartphone-Addiction-Prediction",
-    live: null,
-    status: "Competitive ML",
+    live: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/app",
+    docs: "https://smartphone-addiction-api-242711953247.asia-south1.run.app/docs",
+    status: "Live on GCP Cloud Run",
     architecture: {
       overview: "High-performance tabular modeling pipeline optimized for competitive classification accuracy and discrimination ranking.",
-      pipeline: ["Exploratory Behavioral Profiling", "Feature Transformation & Imputation", "Optuna Hyperparameter Search", "LightGBM / CatBoost Ensembling", "Probability Calibration"],
+      pipeline: ["74-Column Feature Pipeline", "5-Fold Stratified Training (4 Models)", "SLSQP Logit Ensemble + Stacking", "Threshold Tuning", "FastAPI Dashboard (4 Views)", "Multi-Stage Docker on GCP Cloud Run"],
       dataset: "Kaggle Playground Series S6E8 Smartphone Addiction Dataset."
     }
   }

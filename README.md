@@ -1,16 +1,58 @@
-# React + Vite
+# Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Jegadeesh's portfolio site: projects with measured results, education, skills, certifications and a downloadable resume. Built with React and Vite.
 
-Currently, two official plugins are available:
+Live site: https://jegadeesh-portfolio.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Projects:** cards with screenshots, results and links to each repository and live demo.
+- **Sections:** hero, skills, education, certifications and contact.
+- **Resume:** a downloadable PDF served from `public/resume.pdf`.
+- **Certificates:** PDF certificates in `public/certificates/`, with `convert_certs.py` to render their first pages as images.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quick start
 
-## Expanding the Oxlint configuration
+Developed with Node.js 24.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+git clone https://github.com/jegadeesh17/PersonalPortfolioFolder.git
+cd PersonalPortfolioFolder
+npm install
+npm run dev
+```
+
+## Usage
+
+```bash
+npm run build     # production build into dist/
+npm run preview   # serve the production build locally
+npm run lint      # Oxlint
+```
+
+Project cards are defined in `src/components/Projects.jsx`; their images live in `public/projects/`.
+
+## Running tests
+
+There are no automated tests. `npm run build` and `npm run lint` are the checks.
+
+## Configuration
+
+None. The site needs no environment variables.
+
+## Project structure
+
+```
+public/            resume, favicon, profile photo, certificates, project images
+src/components/    one component and stylesheet per section
+src/               app shell and global styles
+convert_certs.py   renders certificate PDFs to images (needs PyMuPDF; set the folder path at the top first)
+```
+
+## How this was built
+
+Designed and built by jegadeesh17 with Claude Code. I reviewed and tested all code.
+
+## License
+
+No license granted. The content is personal.
